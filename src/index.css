@@ -1,0 +1,41 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Default Theme: Modern Slate */
+    --color-portfolio-green: #262626;
+    --color-portfolio-beige: #F5F5F5;
+    --color-portfolio-orange: #D4D4D4;
+    --color-portfolio-yellow: #737373;
+    --color-portfolio-dark: #171717;
+  }
+
+  .alter-mode {
+    /* Alter Theme: Green & Yellow */
+    --color-portfolio-green: #1E3932; /* Deep Forest Green */
+    --color-portfolio-beige: #FFF8E7; /* Cosmic Latte */
+    --color-portfolio-orange: #FFD700; /* Gold */
+    --color-portfolio-yellow: #C5A000; /* Darker Gold */
+    --color-portfolio-dark: #0F1C18; /* Black Green */
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-portfolio-green text-portfolio-beige font-sans;
+    transition: background-color 0.5s ease, color 0.5s ease;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif;
+  }
+}
+
+@layer utilities {
+  .font-outline-text {
+    -webkit-text-stroke: 2px currentColor;
+    color: transparent;
+  }
+}
