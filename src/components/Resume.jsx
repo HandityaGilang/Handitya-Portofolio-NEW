@@ -36,16 +36,16 @@ const Resume = () => {
             <h3 className="text-3xl font-serif mb-8 text-portfolio-yellow border-b border-portfolio-yellow/30 pb-4 inline-block">Education</h3>
             <div className="space-y-2">
               <ResumeItem 
-                year="2022 - 2026"
+                year="2020 - 2025"
                 title="Informatics Engineering"
-                subtitle="University Name"
-                description="Focusing on Software Engineering and Web Technologies."
+                subtitle="Duta Wacana Christian University (GPA 3.51/4.00)"
+                description="Activities: Vice Chair of ITFEST 2022, Coordinator of UKDW ESPORT TURNEY GAME 2022, Member of UKDW ESPORT 2022. Interned in a lab developing a VR Framework for faculty research."
               />
               <ResumeItem 
-                year="2019 - 2022"
-                title="High School"
-                subtitle="School Name"
-                description="Majoring in Science."
+                year="2017 - 2020"
+                title="Social Sciences"
+                subtitle="Kolese De Britto High School"
+                description="Active student focusing on Social Sciences."
               />
             </div>
           </div>

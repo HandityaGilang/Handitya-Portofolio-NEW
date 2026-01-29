@@ -57,7 +57,7 @@ const About = ({ isAlterMode, toggleAlterMode }) => {
                 {isAlterMode ? (
                   "Welcome to the other side. Here, I break the conventional rules of design, experimenting with bold colors and fluid dynamics to create something truly unexpected. This is where creativity meets chaos."
                 ) : (
-                  "I am a self-taught Graphic Designer and Web Developer based in Indonesia with extensive marketing and communication experience. I am currently pursuing a degree in Digital Web & Project Management."
+                  "I am Johanes De Britto Handitya Gilang Wicaksana, an IT graduate with a strong passion for Game Programming, App Development, and Web Development. My goal is to continuously grow in the IT industry and utilize my skills to create impactful solutions for the community."
                 )}
               </p>
 
@@ -72,6 +72,7 @@ const About = ({ isAlterMode, toggleAlterMode }) => {
                     <ul className="text-portfolio-dark/80 space-y-1 text-sm md:text-base">
                       <li>Bahasa Indonesia <span className="text-portfolio-orange text-xs">(Native)</span></li>
                       <li>English <span className="text-portfolio-orange text-xs">(Professional)</span></li>
+                      <li>German <span className="text-portfolio-orange text-xs">(A1)</span></li>
                     </ul>
                   </div>
                   <div>
@@ -80,9 +81,9 @@ const About = ({ isAlterMode, toggleAlterMode }) => {
                       Hobbies & Interest
                     </h3>
                     <ul className="text-portfolio-dark/80 space-y-1 text-sm md:text-base">
-                      <li>Music Production</li>
-                      <li>Photography</li>
-                      <li>Travel</li>
+                      <li>Traveling & Culinary</li>
+                      <li>Singing</li>
+                      <li>Game Dev & Modern Tech</li>
                     </ul>
                   </div>
                 </div>

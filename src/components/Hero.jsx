@@ -182,7 +182,11 @@ const Hero = ({ isAlterMode, toggleAlterMode }) => {
             I'm <span className="text-portfolio-yellow italic">{isAlterMode ? "Garda" : "Handitya"}</span>
           </h1>
           <p className="text-portfolio-beige/80 text-sm md:text-lg mb-8 max-w-lg leading-relaxed">
-            A passionate developer and designer based in Indonesia. I create interactive experiences and functional interfaces.
+            {isAlterMode ? (
+              "A passionate developer and designer based in Indonesia. I create interactive experiences and functional interfaces."
+            ) : (
+              "Junior Game Programmer, App & Web Developer. Passionate about Unity and creating useful applications for the community."
+            )}
           </p>
           
           <div className="flex gap-4">
