@@ -55,16 +55,22 @@ const Resume = () => {
             <h3 className="text-3xl font-serif mb-8 text-portfolio-yellow border-b border-portfolio-yellow/30 pb-4 inline-block">Experience</h3>
             <div className="space-y-2">
               <ResumeItem 
-                year="2023 - Present"
-                title="Freelance Web Developer"
-                subtitle="Self-employed"
-                description="Building websites for small businesses and personal portfolios."
+                year="2025 - Present"
+                title="Desktop Programmer Unity (Intern)"
+                subtitle="Alpha Bumi Mandiri (Maganghub)"
+                description="Developing a GIS (Geographic Information System) application for ITSensing. (Estimated completion: 23 May 2026)"
               />
               <ResumeItem 
-                year="2022"
-                title="Web Design Intern"
-                subtitle="Company Name"
-                description="Assisted in designing user interfaces and creating wireframes."
+                year="2024"
+                title="R&D Intern (VR & Simulation)"
+                subtitle="Duta Wacana Christian University"
+                description="Designed and built a physics classroom simulation app. Conducted R&D on VR technology usability. Collaborated with Chulalongkorn University on Mango Metaverse development."
+              />
+              <ResumeItem 
+                year="2022 - 2024"
+                title="Part-time E-commerce Manager & Data Entry"
+                subtitle="ISVARA BATIK"
+                description="Managed the company's online sales platform and ensured accurate data entry for products, inventory, and customer transactions."
               />
             </div>
           </div>

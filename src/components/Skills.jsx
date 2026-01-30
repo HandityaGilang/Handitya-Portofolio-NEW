@@ -1,26 +1,15 @@
 import { motion } from 'framer-motion';
-import { Cpu, MessageCircle, Code, Palette, Terminal, Brain, Users, Lightbulb, Clock, Target } from 'lucide-react';
+import { Cpu, MessageCircle, Code, Palette, Terminal, Brain, Users, Lightbulb, Clock, Target, Video, FileText } from 'lucide-react';
 
-const HardSkillCard = ({ name, icon: Icon, level }) => (
+const HardSkillCard = ({ name, icon: Icon }) => (
   <motion.div 
     whileHover={{ y: -5, boxShadow: "0 10px 30px -10px rgba(255, 165, 0, 0.3)" }}
-    className="bg-portfolio-dark/50 p-6 rounded-2xl border border-portfolio-beige/10 flex flex-col items-center gap-4 group"
+    className="bg-portfolio-dark/50 p-6 rounded-2xl border border-portfolio-beige/10 flex flex-col items-center gap-4 group h-full justify-center"
   >
     <div className="w-12 h-12 bg-portfolio-green rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
       <Icon className="text-portfolio-beige" size={24} />
     </div>
-    <h4 className="font-bold text-lg text-portfolio-beige">{name}</h4>
-    
-    {/* Progress Bar (Unique Style) */}
-    <div className="w-full h-2 bg-portfolio-dark rounded-full overflow-hidden relative">
-      <motion.div 
-        initial={{ width: 0 }}
-        whileInView={{ width: `${level}%` }}
-        transition={{ duration: 1, delay: 0.2 }}
-        className="absolute top-0 left-0 h-full bg-portfolio-orange"
-      />
-    </div>
-    <span className="text-xs text-portfolio-beige/50 self-end">{level}%</span>
+    <h4 className="font-bold text-lg text-portfolio-beige text-center">{name}</h4>
   </motion.div>
 );
 
@@ -41,10 +30,12 @@ const SoftSkillBubble = ({ name, icon: Icon, index }) => (
 
 const Skills = () => {
   const hardSkills = [
-    { name: "React / Next.js", icon: Code, level: 90 },
-    { name: "UI/UX Design", icon: Palette, level: 85 },
-    { name: "JavaScript", icon: Terminal, level: 88 },
-    { name: "Node.js", icon: Cpu, level: 75 },
+    { name: "React / Next.js", icon: Code },
+    { name: "UI/UX Design", icon: Palette },
+    { name: "JavaScript", icon: Terminal },
+    { name: "Node.js", icon: Cpu },
+    { name: "Video Editing (Premiere, AE, Capcut, Canva)", icon: Video },
+    { name: "Microsoft Office (Word, Excel, etc)", icon: FileText },
   ];
 
   const softSkills = [

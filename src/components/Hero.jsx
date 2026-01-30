@@ -35,13 +35,14 @@ const Hero = ({ isAlterMode, toggleAlterMode }) => {
         {/* Left Side: Image Placeholder */}
         <motion.div 
           animate={{ 
-            rotate: isAlterMode ? 360 : 0,
+            rotateY: isAlterMode ? 360 : 0,
             scale: isAlterMode ? 0.9 : 1
           }}
-          transition={{ duration: 0.8, type: "spring" }}
+          transition={{ duration: 1.2, type: "spring", bounce: 0.4 }}
+          style={{ perspective: 1000 }} // Tambahkan perspektif agar efek 3D terlihat
           className="relative order-2 md:order-1"
         >
-          <div className="relative w-full aspect-[4/5] max-w-md mx-auto">
+          <div className="relative w-full aspect-[4/5] max-w-md mx-auto" style={{ transformStyle: "preserve-3d" }}>
             
             {/* NEW: Alter Mode Specific Animations (Glow & Floating Elements) */}
             {isAlterMode && (
@@ -183,7 +184,7 @@ const Hero = ({ isAlterMode, toggleAlterMode }) => {
           </h1>
           <p className="text-portfolio-beige/80 text-sm md:text-lg mb-8 max-w-lg leading-relaxed">
             {isAlterMode ? (
-              "A passionate developer and designer based in Indonesia. I create interactive experiences and functional interfaces."
+              "My online persona for singing and content creating. Expressing creativity through music and digital content."
             ) : (
               "Junior Game Programmer, App & Web Developer. Passionate about Unity and creating useful applications for the community."
             )}

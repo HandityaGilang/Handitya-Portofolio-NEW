@@ -87,7 +87,7 @@ const Contact = ({ isAlterMode }) => {
                     <div className="w-12 h-12 rounded-full bg-portfolio-green flex items-center justify-center text-portfolio-orange">
                       <MapPin size={24} />
                     </div>
-                    <span>Indonesia</span>
+                    <span>Indonesia, Yogyakarta</span>
                   </motion.div>
 
                   <motion.div 
@@ -97,7 +97,7 @@ const Contact = ({ isAlterMode }) => {
                     <div className="w-12 h-12 rounded-full bg-portfolio-green flex items-center justify-center text-portfolio-orange">
                       <Mail size={24} />
                     </div>
-                    <a href="mailto:email@example.com" className="hover:text-portfolio-orange transition-colors">email@example.com</a>
+                    <a href="mailto:hanhandityagw@gmail.com" className="hover:text-portfolio-orange transition-colors">hanhandityagw@gmail.com</a>
                   </motion.div>
 
                   <motion.div 
@@ -107,7 +107,7 @@ const Contact = ({ isAlterMode }) => {
                     <div className="w-12 h-12 rounded-full bg-portfolio-green flex items-center justify-center text-portfolio-orange">
                       <Phone size={24} />
                     </div>
-                    <span>+62 812 3456 7890</span>
+                    <span>+62 831 0852 7143</span>
                   </motion.div>
                 </>
               )}

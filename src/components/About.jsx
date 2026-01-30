@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Linkedin, Zap, Globe, Heart } from 'lucide-react';
+import { Linkedin, Zap, Globe, Heart, Youtube } from 'lucide-react';
 
 const About = ({ isAlterMode, toggleAlterMode }) => {
   return (
@@ -16,7 +16,7 @@ const About = ({ isAlterMode, toggleAlterMode }) => {
             viewport={{ once: true }}
           >
              {/* Alter Button - Clickable */}
-             <div className="absolute top-0 right-0 z-10">
+             <div className="absolute top-0 -right-4 md:-right-8 z-10 -mt-2">
               <button
                 onClick={toggleAlterMode}
                 className={`
@@ -55,7 +55,7 @@ const About = ({ isAlterMode, toggleAlterMode }) => {
             >
               <p className="text-sm md:text-xl text-portfolio-dark/80 mb-8 leading-relaxed">
                 {isAlterMode ? (
-                  "Welcome to the other side. Here, I break the conventional rules of design, experimenting with bold colors and fluid dynamics to create something truly unexpected. This is where creativity meets chaos."
+                  "Welcome to The other side of me who likes to express with cover songs and content creating. Hoping one day I can make my own song."
                 ) : (
                   "I am Johanes De Britto Handitya Gilang Wicaksana, an IT graduate with a strong passion for Game Programming, App Development, and Web Development. My goal is to continuously grow in the IT industry and utilize my skills to create impactful solutions for the community."
                 )}
@@ -91,13 +91,13 @@ const About = ({ isAlterMode, toggleAlterMode }) => {
             </motion.div>
 
             <motion.a 
-              href="#"
+              href={isAlterMode ? "#" : "#"} // Ganti dengan link YouTube Garda nanti
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="inline-flex items-center gap-2 bg-portfolio-orange text-portfolio-dark px-8 py-3 rounded-full font-bold shadow-lg hover:bg-gray-200 transition-colors"
             >
-              <Linkedin size={20} />
-              linkedin.com/in/handitya
+              {isAlterMode ? <Youtube size={20} /> : <Linkedin size={20} />}
+              {isAlterMode ? "youtube.com/@Garda" : "linkedin.com/in/handitya"}
             </motion.a>
           </motion.div>
 
@@ -187,7 +187,7 @@ const About = ({ isAlterMode, toggleAlterMode }) => {
                     initial={{ x: -50, opacity: 0 }}
                     whileInView={{ x: 0, opacity: 1 }}
                     transition={{ delay: 0.5 }}
-                    className="absolute top-[40%] -left-4 md:-left-8 bg-portfolio-orange text-portfolio-dark px-5 py-2 rounded-full font-bold shadow-lg z-40 text-xs whitespace-nowrap"
+                    className="absolute top-[30%] -left-4 md:-left-8 bg-portfolio-orange text-portfolio-dark px-5 py-2 rounded-full font-bold shadow-lg z-40 text-xs whitespace-nowrap"
                 >
                     Web Developer
                 </motion.div>
@@ -196,9 +196,18 @@ const About = ({ isAlterMode, toggleAlterMode }) => {
                     initial={{ x: 50, opacity: 0 }}
                     whileInView={{ x: 0, opacity: 1 }}
                     transition={{ delay: 0.7 }}
-                    className="absolute top-[60%] -right-4 md:-right-8 bg-portfolio-orange text-portfolio-dark px-5 py-2 rounded-full font-bold shadow-lg z-40 text-xs whitespace-nowrap"
+                    className="absolute top-[50%] -right-4 md:-right-8 bg-portfolio-orange text-portfolio-dark px-5 py-2 rounded-full font-bold shadow-lg z-40 text-xs whitespace-nowrap"
                 >
-                    Graphic Designer
+                    Game Programmer
+                </motion.div>
+
+                <motion.div 
+                    initial={{ x: -50, opacity: 0 }}
+                    whileInView={{ x: 0, opacity: 1 }}
+                    transition={{ delay: 0.9 }}
+                    className="absolute top-[70%] -left-4 md:-left-8 bg-portfolio-orange text-portfolio-dark px-5 py-2 rounded-full font-bold shadow-lg z-40 text-xs whitespace-nowrap"
+                >
+                    App Developer
                 </motion.div>
               </div>
             )}

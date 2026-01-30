@@ -37,7 +37,7 @@ function App() {
           {!isAlterMode && <Resume />}
           {!isAlterMode && <Skills />}
           <Works isAlterMode={isAlterMode} />
-          <Testimonials isAlterMode={isAlterMode} />
+          {!isAlterMode && <Testimonials isAlterMode={isAlterMode} />}
           <Contact isAlterMode={isAlterMode} />
         </div>
       )}
