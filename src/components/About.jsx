@@ -1,7 +1,10 @@
 import { motion } from 'framer-motion';
-import { Linkedin, Zap, Globe, Heart, Youtube } from 'lucide-react';
+import { Linkedin, Zap, Globe, Heart, Youtube, Wallet } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
-const About = ({ isAlterMode, toggleAlterMode }) => {
+const About = ({ isAlterMode, toggleAlterMode, t }) => {
+  const navigate = useNavigate();
+
   return (
     <section id="about" className={`py-20 relative overflow-hidden transition-colors duration-500 ${isAlterMode ? 'bg-portfolio-green text-portfolio-beige' : 'bg-portfolio-beige text-portfolio-dark'}`}>
       <div className="container mx-auto px-6">
@@ -9,7 +12,7 @@ const About = ({ isAlterMode, toggleAlterMode }) => {
           
           {/* Text Content */}
           <motion.div 
-            className="relative"
+            className="relative md:pl-12"
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
@@ -31,9 +34,9 @@ const About = ({ isAlterMode, toggleAlterMode }) => {
             </div>
 
             <h2 className="text-6xl md:text-8xl font-serif leading-none mb-6">
-              {isAlterMode ? 'Hello,' : "Handitya's"} <br />
+              {isAlterMode ? (t?.hello_alter || "It's Garda!") : (t?.hello_normal || "Handitya's")} <br />
               <span className="italic relative inline-block">
-                {isAlterMode ? 'Garda.' : 'here!'}
+                {isAlterMode ? (t?.here_alter || "Garda.") : (t?.here_normal || "here!")}
                 <motion.svg 
                   className="absolute -bottom-2 left-0 w-full h-3 text-portfolio-orange"
                   viewBox="0 0 100 10" 
@@ -55,9 +58,9 @@ const About = ({ isAlterMode, toggleAlterMode }) => {
             >
               <p className="text-sm md:text-xl text-portfolio-dark/80 mb-8 leading-relaxed">
                 {isAlterMode ? (
-                  "Welcome to The other side of me who likes to express with cover songs and content creating. Hoping one day I can make my own song."
+                  t?.bio_alter || "Welcome to The other side of me who likes to express with cover songs and content creating. Hoping one day I can make my own song."
                 ) : (
-                  "I am Johanes De Britto Handitya Gilang Wicaksana, an IT graduate with a strong passion for Game Programming, App Development, and Web Development. My goal is to continuously grow in the IT industry and utilize my skills to create impactful solutions for the community."
+                  t?.bio_normal || "I am Johanes De Britto Handitya Gilang Wicaksana, an IT graduate with a strong passion for Game Programming, App Development, and Web Development. My goal is to continuously grow in the IT industry and utilize my skills to create impactful solutions for the community."
                 )}
               </p>
 
@@ -67,7 +70,7 @@ const About = ({ isAlterMode, toggleAlterMode }) => {
                   <div>
                     <h3 className="font-serif text-2xl mb-2 flex items-center gap-2">
                       <Globe size={20} className="text-portfolio-orange" />
-                      Languages
+                      {t?.languages || "Languages"}
                     </h3>
                     <ul className="text-portfolio-dark/80 space-y-1 text-sm md:text-base">
                       <li>Bahasa Indonesia <span className="text-portfolio-orange text-xs">(Native)</span></li>
@@ -78,7 +81,7 @@ const About = ({ isAlterMode, toggleAlterMode }) => {
                   <div>
                     <h3 className="font-serif text-2xl mb-2 flex items-center gap-2">
                       <Heart size={20} className="text-portfolio-orange" />
-                      Hobbies & Interest
+                      {t?.hobbies || "Hobbies & Interest"}
                     </h3>
                     <ul className="text-portfolio-dark/80 space-y-1 text-sm md:text-base">
                       <li>Traveling & Culinary</li>
@@ -99,6 +102,22 @@ const About = ({ isAlterMode, toggleAlterMode }) => {
               {isAlterMode ? <Youtube size={20} /> : <Linkedin size={20} />}
               {isAlterMode ? "youtube.com/@Garda" : "linkedin.com/in/handitya"}
             </motion.a>
+
+            <div className="mt-4">
+              <motion.button 
+                onClick={() => navigate('/commission')}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className={`inline-flex items-center gap-2 px-8 py-3 rounded-full font-bold shadow-lg transition-colors ${
+                  isAlterMode 
+                  ? 'bg-portfolio-orange text-portfolio-dark hover:bg-portfolio-beige' 
+                  : 'bg-portfolio-dark text-portfolio-beige hover:bg-portfolio-orange hover:text-portfolio-dark'
+                }`}
+              >
+                <Wallet size={20} />
+                Commission Me
+              </motion.button>
+            </div>
           </motion.div>
 
           {/* Image Placeholder */}
@@ -189,7 +208,7 @@ const About = ({ isAlterMode, toggleAlterMode }) => {
                     transition={{ delay: 0.5 }}
                     className="absolute top-[30%] -left-4 md:-left-8 bg-portfolio-orange text-portfolio-dark px-5 py-2 rounded-full font-bold shadow-lg z-40 text-xs whitespace-nowrap"
                 >
-                    Web Developer
+                    {t?.labels?.web || 'Web Developer'}
                 </motion.div>
 
                 <motion.div 
@@ -198,7 +217,7 @@ const About = ({ isAlterMode, toggleAlterMode }) => {
                     transition={{ delay: 0.7 }}
                     className="absolute top-[50%] -right-4 md:-right-8 bg-portfolio-orange text-portfolio-dark px-5 py-2 rounded-full font-bold shadow-lg z-40 text-xs whitespace-nowrap"
                 >
-                    Game Programmer
+                    {t?.labels?.game || 'Game Programmer'}
                 </motion.div>
 
                 <motion.div 
@@ -207,7 +226,7 @@ const About = ({ isAlterMode, toggleAlterMode }) => {
                     transition={{ delay: 0.9 }}
                     className="absolute top-[70%] -left-4 md:-left-8 bg-portfolio-orange text-portfolio-dark px-5 py-2 rounded-full font-bold shadow-lg z-40 text-xs whitespace-nowrap"
                 >
-                    App Developer
+                    {t?.labels?.app || 'App Developer'}
                 </motion.div>
               </div>
             )}

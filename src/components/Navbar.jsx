@@ -2,14 +2,14 @@ import { motion } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 import { useState } from 'react';
 
-const Navbar = ({ isAlterMode }) => {
+const Navbar = ({ isAlterMode, t }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const links = [
-    { name: 'About me', href: '#about' },
-    { name: 'Work', href: '#work' },
-    !isAlterMode && { name: 'Resume', href: '#resume' }, // Hide Resume in Alter Mode
-    !isAlterMode && { name: 'Skills', href: '#skills' }, // Hide Skills in Alter Mode
+    { name: t?.about || 'About me', href: '#about' },
+    { name: t?.work || 'Work', href: '#work' },
+    !isAlterMode && { name: t?.resume || 'Resume', href: '#resume' }, // Hide Resume in Alter Mode
+    !isAlterMode && { name: t?.skills || 'Skills', href: '#skills' }, // Hide Skills in Alter Mode
   ].filter(Boolean); // Remove false values
 
   const handleContactClick = () => {
@@ -17,7 +17,7 @@ const Navbar = ({ isAlterMode }) => {
   };
 
   return (
-    <nav className={`fixed w-full z-50 backdrop-blur-sm py-4 px-6 md:px-12 flex justify-between items-center border-b transition-colors duration-500 ${isAlterMode ? 'bg-portfolio-dark/90 text-portfolio-beige border-portfolio-green/10' : 'bg-portfolio-green/90 text-portfolio-beige border-portfolio-beige/10'}`}>
+    <nav className={`fixed top-0 left-1/2 -translate-x-1/2 w-full max-w-[1440px] z-50 backdrop-blur-sm py-4 px-6 md:px-12 flex justify-between items-center border-b transition-colors duration-500 ${isAlterMode ? 'bg-portfolio-dark/90 text-portfolio-beige border-portfolio-green/10' : 'bg-portfolio-green/90 text-portfolio-beige border-portfolio-beige/10'}`}>
       <motion.div 
         initial={{ opacity: 0, x: -20 }}
         animate={{ opacity: 1, x: 0 }}
@@ -85,7 +85,7 @@ const Navbar = ({ isAlterMode }) => {
             }}
             className="bg-portfolio-orange text-portfolio-dark px-6 py-2 rounded-full font-bold text-sm uppercase w-full"
           >
-            Get In touch!
+            {t?.contact || 'Get In touch!'}
           </button>
         </motion.div>
       )}

@@ -3,7 +3,7 @@ import { ArrowDown, Zap } from 'lucide-react';
 import Lottie from 'lottie-react';
 import starAnimation from '../assets/star.json';
 
-const Hero = ({ isAlterMode, toggleAlterMode }) => {
+const Hero = ({ isAlterMode, toggleAlterMode, t }) => {
   return (
     <section className="relative min-h-screen bg-portfolio-green text-portfolio-beige flex flex-col justify-center items-center overflow-hidden pt-20 transition-colors duration-500">
       
@@ -184,18 +184,24 @@ const Hero = ({ isAlterMode, toggleAlterMode }) => {
           </h1>
           <p className="text-portfolio-beige/80 text-sm md:text-lg mb-8 max-w-lg leading-relaxed">
             {isAlterMode ? (
-              "My online persona for singing and content creating. Expressing creativity through music and digital content."
+              t?.role_alter || "A persona online who loves singing and creating content."
             ) : (
-              "Junior Game Programmer, App & Web Developer. Passionate about Unity and creating useful applications for the community."
+              t?.role_normal || "Junior Game Programmer, App & Web Developer. Passionate about Unity and creating useful applications for the community."
             )}
           </p>
           
           <div className="flex gap-4">
-            <button className="bg-portfolio-orange text-portfolio-dark px-6 py-2 md:px-8 md:py-3 rounded-full font-bold uppercase hover:bg-portfolio-yellow transition-colors shadow-lg shadow-portfolio-orange/20 text-xs md:text-base">
-              My Works
+            <button 
+              onClick={() => document.getElementById('work')?.scrollIntoView({ behavior: 'smooth' })}
+              className="bg-portfolio-orange text-portfolio-dark px-6 py-2 md:px-8 md:py-3 rounded-full font-bold uppercase hover:bg-portfolio-yellow transition-colors shadow-lg shadow-portfolio-orange/20 text-xs md:text-base"
+            >
+              {t?.btn_works || "My Works"}
             </button>
-            <button className="border border-portfolio-beige text-portfolio-beige px-6 py-2 md:px-8 md:py-3 rounded-full font-bold uppercase hover:bg-portfolio-beige hover:text-portfolio-dark transition-colors text-xs md:text-base">
-              Contact Me
+            <button 
+              onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+              className="border border-portfolio-beige text-portfolio-beige px-6 py-2 md:px-8 md:py-3 rounded-full font-bold uppercase hover:bg-portfolio-beige hover:text-portfolio-dark transition-colors text-xs md:text-base"
+            >
+              {t?.btn_contact || "Contact Me"}
             </button>
           </div>
         </motion.div>

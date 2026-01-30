@@ -1,47 +1,18 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowLeft, ArrowRight, ExternalLink, Github, Play } from 'lucide-react';
+import { ArrowLeft, ArrowRight, ExternalLink, Play, Wallet } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
-const projects = [
-  {
-    id: 0,
-    title: "Welcome to My Workspace",
-    type: "Introduction",
-    category: "Intro",
-    description: "Here lies a collection of my digital craftsmanship. I believe in clean code, pixel-perfect design, and intuitive user experiences. Swipe to explore my recent projects.",
-    image: null, // Intro card doesn't need an image
-    tags: ["Portfolio", "Journey", "Showcase"]
-  },
-  {
-    id: 1,
-    title: "E-Commerce Dashboard",
-    type: "Web Application",
-    category: "Client Based",
-    description: "A comprehensive analytics dashboard for online retailers. Features real-time data visualization, inventory management, and sales reporting tools.",
-    image: "https://placehold.co/800x600/1a1a1a/e5e5e5?text=E-Commerce+Dashboard", 
-    tags: ["React", "Tailwind", "Recharts"]
-  },
-  {
-    id: 2,
-    title: "Social Media App",
-    type: "Mobile First",
-    category: "Personal Project",
-    description: "A modern social platform focused on photo sharing and community building. Implemented infinite scroll, real-time notifications, and image optimization.",
-    image: "https://placehold.co/800x600/1a1a1a/e5e5e5?text=Social+App",
-    tags: ["Next.js", "Firebase", "Framer Motion"]
-  },
-  {
-    id: 3,
-    title: "AI Image Generator",
-    type: "Experimental",
-    category: "Academic",
-    description: "An interface for generating images using Stable Diffusion API. Users can input prompts, adjust parameters, and save their creations to a personal gallery.",
-    image: "https://placehold.co/800x600/1a1a1a/e5e5e5?text=AI+Generator",
-    tags: ["OpenAI API", "Node.js", "Canvas"]
-  }
-];
 
 const videos = [
+  // --- TEMPAT MENAMBAHKAN VIDEO BARU (UNTUK MODE GARDA) ---
+  // Copy format di bawah ini dan tempelkan sebelum penutup kurung siku ]
+  // {
+  //   id: 4, (Pastikan ID unik/berbeda dari yang lain)
+  //   title: "Judul Video",
+  //   url: "Link Embed Youtube", 
+  //   thumbnail: "/path/to/image.jpg"
+  // },
   {
     id: 1,
     title: "Cinematic Travel Vlog",
@@ -62,9 +33,84 @@ const videos = [
   }
 ];
 
-const Works = ({ isAlterMode }) => {
+const Works = ({ isAlterMode, t }) => {
+  const navigate = useNavigate();
   const [activeIndex, setActiveIndex] = useState(0);
   const [filter, setFilter] = useState('All');
+
+  const projects = [
+    // --- TEMPAT MENAMBAHKAN PROJECT BARU (UNTUK MODE HANDITYA) ---
+    // Copy format di bawah ini dan tempelkan di dalam array
+    // {
+    //   id: 4, (Pastikan ID unik)
+    //   title: "Nama Project",
+    //   type: "Tipe Project (Web/Mobile/Design)",
+    //   category: "Pilih salah satu: 'Personal Project', 'Academic', 'Client Based'",
+    //   description: "Deskripsi singkat project...",
+    //   image: "Link gambar atau path lokal", 
+    //   tags: ["React", "CSS", "Lainnya"],
+    //   link: "https://link-project-anda.com"
+    // },
+    {
+      id: 0,
+      title: t?.intro_title || "Welcome to My Workspace",
+      type: "Introduction",
+      category: "Intro",
+      description: t?.intro_desc || "Here lies a collection of my digital craftsmanship. I believe in clean code, pixel-perfect design, and intuitive user experiences. Swipe to explore my recent projects.",
+      image: null, // Intro card doesn't need an image
+      tags: ["Portfolio", "Journey", "Showcase"]
+    },
+    {
+      id: 1,
+      title: "Virtual labs V 1.0",
+      type: "Virtual Reality",
+      category: "Academic",
+      description: "An immersive VR learning simulation focused on series and parallel circuits, developed as an undergraduate thesis at Duta Wacana Christian University.",
+      image: "https://img.itch.zone/aW1hZ2UvMzI3ODM2NS8xOTU2MzI5MS5wbmc=/original/CVJAr7.png", 
+      tags: ["VR", "Unity", "Game Design"],
+      link: "https://han-garda.itch.io/virtual-labs-v-10"
+    },
+    {
+      id: 2,
+      title: "Money Tracker(WIP)",
+      type: "Mobile",
+      category: "Personal Project",
+      description: "A simple money tracker app for personal and shared savings. Users can track individual savings or save together online using a unique code to manage shared funds transparently.",
+      image: "https://placehold.co/800x600/1a1a1a/e5e5e5?text=Money+Tracker",
+      tags: ["Flutter", "Supabase", "Dart"],
+      link: "https://github.com/HandityaGilang/Money-Tracker-By-Han"
+    },
+    {
+      id: 3,
+      title: "PDF.ReDoc (WIP)",
+      type: "Experimental",
+      category: "Personal Project",
+      description: "A modern PDF-to-DOCX conversion app built with Next.js 15, designed to transform PDF documents into fully editable Word files while preserving the original layout.",
+      image: "https://placehold.co/800x600/1a1a1a/e5e5e5?text=PDF.Redoc",
+      tags: ["Next.js", "Node.js", "React"],
+      link: "https://github.com/HandityaGilang/PDF.ReDoc"
+    },
+    {
+      id: 4,
+      title: "Isvara Inventory Manager (IIM)",
+      type: "Desktop App",
+      category: "Client Based",
+      description: "A modern desktop inventory management application designed to help small and medium businesses manage stock, sales, and profits easily and efficiently.",
+      image: "https://placehold.co/800x600/1a1a1a/e5e5e5?text=IIM",
+      tags: ["Next.js", "Node.js", "React"],
+      link: "https://github.com/HandityaGilang/Isvara-Inventory-Manager2/releases/tag/Isvara"
+    },
+    {
+      id: 5,
+      title: "Website portofolio Isvara Batik & Konveksi",
+      type: "website",
+      category: "Client Based",
+      description: "Website Portofolio of a small business",
+      image: "https://media.discordapp.net/attachments/735523499094835250/1466673838183026822/image.png?ex=697d99f4&is=697c4874&hm=f869469cddd73d654e1b06a1addc95528d535e80cb5aa67b2a189a13dfc3f281&=&format=webp&quality=lossless&width=1475&height=902",
+      tags: ["HTML", "PHP", "js"],
+      link: "https://handityagilang.github.io/Website-Isvara-Konveksi/"
+    }
+  ];
 
   const filteredProjects = projects.filter(project => {
     if (filter === 'All') return true;
@@ -126,10 +172,14 @@ const Works = ({ isAlterMode }) => {
     <section id="work" className={`py-20 overflow-hidden min-h-screen flex flex-col justify-center relative transition-colors duration-500 ${isAlterMode ? 'bg-portfolio-dark text-portfolio-green' : 'bg-portfolio-green text-portfolio-beige'}`}>
       <div className="container mx-auto px-6 h-full flex flex-col items-center justify-center">
         
-        <div className="text-center mb-12">
-          <h2 className="text-5xl md:text-7xl font-serif mb-4">{isAlterMode ? "Visual Archives" : "Projects"}</h2>
-          <p className="text-portfolio-yellow text-sm uppercase tracking-widest">{isAlterMode ? "Covered Song" : "Swipe to explore"}</p>
-        </div>
+        <motion.h2 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center text-5xl md:text-7xl font-serif mb-16"
+        >
+          {t?.title || "My Works"}
+        </motion.h2>
 
         {/* Filter Buttons (Only in Normal Mode) */}
         {!isAlterMode && (
@@ -262,12 +312,16 @@ const Works = ({ isAlterMode }) => {
                              
                              {project.id !== 0 && (
                                <div className="flex gap-2 md:gap-4">
-                                  <button className="flex items-center gap-1 md:gap-2 bg-portfolio-orange text-portfolio-dark px-3 py-1.5 md:px-6 md:py-2 rounded-full font-bold text-[10px] md:text-sm hover:bg-white transition-colors">
-                                    View <ExternalLink size={12} className="md:w-4 md:h-4" />
-                                  </button>
-                                  <button className="flex items-center gap-1 md:gap-2 border border-portfolio-beige/30 text-portfolio-beige px-3 py-1.5 md:px-6 md:py-2 rounded-full font-bold text-[10px] md:text-sm hover:bg-portfolio-beige hover:text-portfolio-dark transition-colors">
-                                    <Github size={12} className="md:w-4 md:h-4" /> Code
-                                  </button>
+                                  {project.link && (
+                                    <a 
+                                      href={project.link} 
+                                      target="_blank" 
+                                      rel="noopener noreferrer"
+                                      className="flex items-center gap-1 md:gap-2 bg-portfolio-orange text-portfolio-dark px-3 py-1.5 md:px-6 md:py-2 rounded-full font-bold text-[10px] md:text-sm hover:bg-white transition-colors"
+                                    >
+                                      {t?.view_project || "View"} <ExternalLink size={12} className="md:w-4 md:h-4" />
+                                    </a>
+                                  )}
                                </div>
                              )}
                           </motion.div>
@@ -298,6 +352,25 @@ const Works = ({ isAlterMode }) => {
             )}
           </div>
         )}
+
+        <div className="flex flex-col items-center mt-12 md:mt-16">
+           <p className={`text-lg md:text-xl font-serif mb-4 ${isAlterMode ? 'text-portfolio-green/80' : 'text-portfolio-dark/80'}`}>
+             interested in making a project?
+           </p>
+           <motion.button 
+             onClick={() => navigate('/commission')}
+             whileHover={{ scale: 1.05 }}
+             whileTap={{ scale: 0.95 }}
+             className={`inline-flex items-center gap-2 px-8 py-3 rounded-full font-bold shadow-lg transition-colors border-2 ${
+               isAlterMode 
+               ? 'bg-portfolio-green text-portfolio-dark border-portfolio-green hover:bg-transparent hover:text-portfolio-green' 
+               : 'bg-portfolio-dark text-portfolio-beige border-portfolio-dark hover:bg-transparent hover:text-portfolio-dark'
+             }`}
+           >
+             <Wallet size={20} />
+             Commission Me
+           </motion.button>
+        </div>
       </div>
     </section>
   );
