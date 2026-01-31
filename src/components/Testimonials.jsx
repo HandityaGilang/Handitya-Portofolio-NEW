@@ -113,7 +113,6 @@ const Testimonials = ({ isAlterMode }) => {
                  <p className="text-xl font-serif">Belum ada testimoni saat ini.</p>
                  <p className="text-sm opacity-70 max-w-md mx-auto">
                    Testimoni dari klien akan muncul di sini. <br/>
-                   (Edit file <code>src/components/Testimonials.jsx</code> untuk menambahkan data manual).
                  </p>
                </div>
             </div>

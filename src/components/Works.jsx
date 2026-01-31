@@ -47,7 +47,10 @@ const Works = ({ isAlterMode, t }) => {
     //   type: "Tipe Project (Web/Mobile/Design)",
     //   category: "Pilih salah satu: 'Personal Project', 'Academic', 'Client Based'",
     //   description: "Deskripsi singkat project...",
-    //   image: "Link gambar atau path lokal", 
+    //   // CARA PAKAI GAMBAR FILE SENDIRI:
+    //   // 1. Simpan gambar di folder: public/images/
+    //   // 2. Tulis path-nya seperti contoh di bawah:
+    //   image: "/images/nama-file-anda.jpg", 
     //   tags: ["React", "CSS", "Lainnya"],
     //   link: "https://link-project-anda.com"
     // },
@@ -106,10 +109,20 @@ const Works = ({ isAlterMode, t }) => {
       type: "website",
       category: "Client Based",
       description: "Website Portofolio of a small business",
-      image: "https://media.discordapp.net/attachments/735523499094835250/1466673838183026822/image.png?ex=697d99f4&is=697c4874&hm=f869469cddd73d654e1b06a1addc95528d535e80cb5aa67b2a189a13dfc3f281&=&format=webp&quality=lossless&width=1475&height=902",
+      image: "/images/Screenshot 2026-01-30 125753.png",
       tags: ["HTML", "PHP", "js"],
       link: "https://handityagilang.github.io/Website-Isvara-Konveksi/"
-    }
+    },
+    {
+      id: 6,
+      title: "Website portofolio 52Herzt",
+      type: "website",
+      category: "Client Based",
+      description: "Website Portofolio of a artist commision",
+      image: "/images/Screenshot 2026-01-31 011359.png",
+      tags: ["React.js", "Node.js", "js"],
+      link: "https://52herzt.vercel.app/"
+    },
   ];
 
   const filteredProjects = projects.filter(project => {
@@ -286,7 +299,7 @@ const Works = ({ isAlterMode, t }) => {
                         />
                        ) : (
                          <div className="w-full h-full bg-portfolio-dark flex items-center justify-center">
-                            <h3 className="text-2xl md:text-4xl font-serif text-portfolio-beige/20">Intro</h3>
+                            {/* Intro text removed as requested */}
                          </div>
                        )}
 
