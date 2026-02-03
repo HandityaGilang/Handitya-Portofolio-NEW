@@ -10,28 +10,31 @@ const videos = [
   // {
   //   id: 4, (Pastikan ID unik/berbeda dari yang lain)
   //   title: "Judul Video",
-  //   url: "Link Embed Youtube", 
-  //   thumbnail: "/path/to/image.jpg"
+  //   url: "Link Youtube (Bisa format watch?v= atau youtu.be)", 
   // },
   {
     id: 1,
-    title: "Cinematic Travel Vlog",
-    url: "https://www.youtube.com/embed/LXb3EKWsInQ", 
-    thumbnail: "/images/video-thumb-1.jpg" // Simpan gambar di public/images/video-thumb-1.jpg
+    title: "Overdose",
+    url: "https://www.youtube.com/watch?v=6xkJyJ3MP4Y", 
   },
   {
     id: 2,
     title: "Motion Graphics Showreel",
     url: "https://www.youtube.com/embed/LXb3EKWsInQ", 
-    thumbnail: "/images/video-thumb-2.jpg" // Simpan gambar di public/images/video-thumb-2.jpg
   },
   {
     id: 3,
-    title: "Short Film Project",
-    url: "https://www.youtube.com/embed/LXb3EKWsInQ", 
-    thumbnail: "/images/video-thumb-3.jpg" // Simpan gambar di public/images/video-thumb-3.jpg
+    title: "Tonight",
+    url: "https://youtu.be/E7s3c3vokOE", 
   }
 ];
+
+// Helper to extract YouTube ID
+const getYouTubeId = (url) => {
+  const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
+  const match = url.match(regExp);
+  return (match && match[2].length === 11) ? match[2] : null;
+};
 
 const Works = ({ isAlterMode, t }) => {
   const navigate = useNavigate();
@@ -217,29 +220,39 @@ const Works = ({ isAlterMode, t }) => {
         {isAlterMode ? (
           /* Video Gallery Grid for Garda */
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 w-full max-w-6xl">
-            {videos.map((video) => (
-              <motion.div 
-                key={video.id}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                className="group relative aspect-video rounded-xl overflow-hidden border border-portfolio-green/20 bg-black"
-              >
-                <iframe 
-                  width="100%" 
-                  height="100%" 
-                  src={video.url} 
-                  title={video.title} 
-                  frameBorder="0" 
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                  allowFullScreen
-                  className="w-full h-full opacity-80 group-hover:opacity-100 transition-opacity duration-300"
-                ></iframe>
-                <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 to-transparent pointer-events-none">
-                  <h3 className="text-xl font-serif text-portfolio-yellow">{video.title}</h3>
-                </div>
-              </motion.div>
-            ))}
+            {videos.map((video) => {
+              const videoId = getYouTubeId(video.url);
+              const embedUrl = videoId ? `https://www.youtube.com/embed/${videoId}` : video.url;
+              const thumbnailUrl = videoId ? `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg` : null;
+
+              return (
+                <motion.div 
+                  key={video.id}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  className="group relative aspect-video rounded-xl overflow-hidden border border-portfolio-green/20 bg-black"
+                >
+                  {/* Facade Pattern: Show Image first, allow click to play */}
+                  <div className="w-full h-full relative">
+                    <iframe 
+                      width="100%" 
+                      height="100%" 
+                      src={embedUrl} 
+                      title={video.title} 
+                      frameBorder="0" 
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                      allowFullScreen
+                      className="w-full h-full"
+                    ></iframe>
+                  </div>
+                  
+                  <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 to-transparent pointer-events-none">
+                    <h3 className="text-xl font-serif text-portfolio-yellow">{video.title}</h3>
+                  </div>
+                </motion.div>
+              );
+            })}
           </div>
         ) : (
           /* Carousel Container for Handitya */

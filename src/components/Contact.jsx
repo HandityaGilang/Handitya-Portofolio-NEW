@@ -164,9 +164,9 @@ const Contact = ({ isAlterMode, t }) => {
           <div className="mt-20 pt-8 border-t border-portfolio-beige/10 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-portfolio-beige/40">
             <p>&copy; 2026 Handitya. All rights reserved.</p>
             <div className="flex gap-6">
-              <a href="#" className="hover:text-portfolio-orange transition-colors">Instagram</a>
-              <a href="#" className="hover:text-portfolio-orange transition-colors">LinkedIn</a>
-              <a href="#" className="hover:text-portfolio-orange transition-colors">GitHub</a>
+              <a href="https://www.instagram.com/han_dityaa?igsh=NDF3ZDVhc3hwb3Bp" className="hover:text-portfolio-orange transition-colors">Instagram</a>
+              <a href="https://www.linkedin.com/in/handitya-gilang-9a7353262/" className="hover:text-portfolio-orange transition-colors">LinkedIn</a>
+              <a href="https://github.com/HandityaGilang" className="hover:text-portfolio-orange transition-colors">GitHub</a>
             </div>
           </div>
 

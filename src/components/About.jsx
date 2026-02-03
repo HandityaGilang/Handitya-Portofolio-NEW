@@ -100,7 +100,7 @@ const About = ({ isAlterMode, toggleAlterMode, t }) => {
               className="inline-flex items-center gap-2 bg-portfolio-orange text-portfolio-dark px-8 py-3 rounded-full font-bold shadow-lg hover:bg-gray-200 transition-colors"
             >
               {isAlterMode ? <Youtube size={20} /> : <Linkedin size={20} />}
-              {isAlterMode ? "youtube.com/@Garda" : "linkedin.com/in/handitya"}
+              {isAlterMode ? "https://www.youtube.com/@sera_nceCh" : "https://www.linkedin.com/in/handitya-gilang-9a7353262/"}
             </motion.a>
 
             <div className="mt-4">
