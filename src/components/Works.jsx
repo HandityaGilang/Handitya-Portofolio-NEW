@@ -19,8 +19,8 @@ const videos = [
   },
   {
     id: 2,
-    title: "Motion Graphics Showreel",
-    url: "https://www.youtube.com/embed/LXb3EKWsInQ", 
+    title: "ダーリン (Darling)",
+    url: "https://www.youtube.com/watch?v=T163qB7hndQ", 
   },
   {
     id: 3,

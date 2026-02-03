@@ -3,6 +3,7 @@ import { Mail, MapPin, Phone, Instagram, Linkedin, Youtube, Twitter, Wallet, Gam
 import { useNavigate } from 'react-router-dom';
 import Lottie from 'lottie-react';
 import starAnimation from '../assets/star.json';
+import { SOCIAL_LINKS } from '../constants';
 
 const DiscordIcon = ({ size = 24, className = "" }) => (
   <svg 
@@ -81,7 +82,9 @@ const Contact = ({ isAlterMode, t }) => {
                  // Social Media Links for Garda
                 <div className="grid grid-cols-1 gap-4">
                    <motion.a 
-                    href="#"
+                    href={SOCIAL_LINKS.YOUTUBE}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     whileHover={{ x: 10 }}
                     className="flex items-center gap-4 text-xl group"
                   >
@@ -92,7 +95,9 @@ const Contact = ({ isAlterMode, t }) => {
                   </motion.a>
                   
                   <motion.a 
-                    href="#"
+                    href={SOCIAL_LINKS.INSTAGRAM}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     whileHover={{ x: 10 }}
                     className="flex items-center gap-4 text-xl group"
                   >
@@ -164,9 +169,9 @@ const Contact = ({ isAlterMode, t }) => {
           <div className="mt-20 pt-8 border-t border-portfolio-beige/10 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-portfolio-beige/40">
             <p>&copy; 2026 Handitya. All rights reserved.</p>
             <div className="flex gap-6">
-              <a href="https://www.instagram.com/han_dityaa?igsh=NDF3ZDVhc3hwb3Bp" className="hover:text-portfolio-orange transition-colors">Instagram</a>
-              <a href="https://www.linkedin.com/in/handitya-gilang-9a7353262/" className="hover:text-portfolio-orange transition-colors">LinkedIn</a>
-              <a href="https://github.com/HandityaGilang" className="hover:text-portfolio-orange transition-colors">GitHub</a>
+              <a href={SOCIAL_LINKS.INSTAGRAM_PERSONAL} className="hover:text-portfolio-orange transition-colors" target="_blank" rel="noopener noreferrer">Instagram</a>
+              <a href={SOCIAL_LINKS.LINKEDIN} className="hover:text-portfolio-orange transition-colors" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+              <a href={SOCIAL_LINKS.GITHUB} className="hover:text-portfolio-orange transition-colors" target="_blank" rel="noopener noreferrer">GitHub</a>
             </div>
           </div>
 

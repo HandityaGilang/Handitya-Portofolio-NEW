@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { Linkedin, Zap, Globe, Heart, Youtube, Wallet } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
+import { SOCIAL_LINKS } from '../constants';
 
 const About = ({ isAlterMode, toggleAlterMode, t }) => {
   const navigate = useNavigate();
@@ -94,13 +95,15 @@ const About = ({ isAlterMode, toggleAlterMode, t }) => {
             </motion.div>
 
             <motion.a 
-              href={isAlterMode ? "#" : "#"} // Ganti dengan link YouTube Garda nanti
+              href={isAlterMode ? SOCIAL_LINKS.YOUTUBE : SOCIAL_LINKS.LINKEDIN} 
+              target="_blank"
+              rel="noopener noreferrer"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="inline-flex items-center gap-2 bg-portfolio-orange text-portfolio-dark px-8 py-3 rounded-full font-bold shadow-lg hover:bg-gray-200 transition-colors"
             >
               {isAlterMode ? <Youtube size={20} /> : <Linkedin size={20} />}
-              {isAlterMode ? "https://www.youtube.com/@sera_nceCh" : "https://www.linkedin.com/in/handitya-gilang-9a7353262/"}
+              {isAlterMode ? "youtube.com/@Garda" : "LinkedIn Profile"}
             </motion.a>
 
             <div className="mt-4">
