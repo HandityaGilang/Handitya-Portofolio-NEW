@@ -1,0 +1,104 @@
+export const projectsData = [
+  {
+    id: 1,
+    title: "Virtual labs V 1.0",
+    category: "Academic",
+    type: "Virtual Reality",
+    summary: "An immersive VR learning simulation focused on series and parallel circuits, developed as an undergraduate thesis at Duta Wacana Christian University.",
+    role: "Sole Developer",
+    technologies: ["Unity", "C#", "VR"],
+    year: "2024",
+    status: "Completed",
+    image: "https://img.itch.zone/aW1hZ2UvMzI3ODM2NS8xOTU2MzI5MS5wbmc=/original/CVJAr7.png",
+    liveUrl: "https://han-garda.itch.io/virtual-labs-v-10",
+    githubUrl: null
+  },
+  {
+    id: 2,
+    title: "Money Tracker",
+    category: "Personal Project",
+    type: "Mobile App",
+    summary: "A simple money tracker app for personal and shared savings. Users can track individual savings or save together online using a unique code to manage shared funds transparently.",
+    role: "Developer",
+    technologies: ["Flutter", "Dart", "Supabase"],
+    year: "2025",
+    status: "Work in Progress",
+    image: "https://placehold.co/800x600/1a1a1a/e5e5e5?text=Money+Tracker",
+    liveUrl: null,
+    githubUrl: "https://github.com/HandityaGilang/Money-Tracker-By-Han"
+  },
+  {
+    id: 3,
+    title: "PDF.ReDoc",
+    category: "Personal Project",
+    type: "Web App",
+    summary: "A modern PDF-to-DOCX conversion app built with Next.js 15, designed to transform PDF documents into fully editable Word files while preserving the original layout.",
+    role: "Developer",
+    technologies: ["Next.js", "React", "Node.js"],
+    year: "2025",
+    status: "Work in Progress",
+    image: "https://placehold.co/800x600/1a1a1a/e5e5e5?text=PDF.Redoc",
+    liveUrl: null,
+    githubUrl: "https://github.com/HandityaGilang/PDF.ReDoc"
+  },
+  {
+    id: 4,
+    title: "Isvara Inventory Manager (IIM)",
+    category: "Client Based",
+    type: "Desktop App",
+    summary: "A modern desktop inventory management application designed to help small and medium businesses manage stock, sales, and profits easily and efficiently.",
+    role: "Developer",
+    technologies: ["Next.js", "React", "Node.js", "Electron"],
+    year: "2024",
+    status: "Completed",
+    image: "https://placehold.co/800x600/1a1a1a/e5e5e5?text=IIM",
+    liveUrl: "https://github.com/HandityaGilang/Isvara-Inventory-Manager2/releases/tag/Isvara",
+    githubUrl: "https://github.com/HandityaGilang/Isvara-Inventory-Manager2"
+  },
+  {
+    id: 5,
+    title: "Isvara Batik & Konveksi Portfolio",
+    category: "Client Based",
+    type: "Website",
+    summary: "Website Portfolio of a small business to showcase their batik and convection products.",
+    role: "Web Developer",
+    technologies: ["HTML", "CSS", "PHP", "JavaScript"],
+    year: "2023",
+    status: "Completed",
+    image: "/images/Screenshot 2026-01-30 125753.png",
+    liveUrl: "https://handityagilang.github.io/Website-Isvara-Konveksi/",
+    githubUrl: "https://github.com/HandityaGilang/Website-Isvara-Konveksi"
+  },
+  {
+    id: 6,
+    title: "52Herzt Portfolio",
+    category: "Client Based",
+    type: "Website",
+    summary: "Website Portfolio of an artist commission, showcasing artworks and commission details.",
+    role: "Frontend Developer",
+    technologies: ["React.js", "Node.js", "JavaScript"],
+    year: "2025",
+    status: "Completed",
+    image: "/images/Screenshot 2026-01-31 011359.png",
+    liveUrl: "https://52herzt.vercel.app/",
+    githubUrl: null
+  }
+];
+
+export const videosData = [
+  {
+    id: 1,
+    title: "Overdose",
+    url: "https://www.youtube.com/watch?v=6xkJyJ3MP4Y", 
+  },
+  {
+    id: 2,
+    title: "ダーリン (Darling)",
+    url: "https://www.youtube.com/watch?v=T163qB7hndQ", 
+  },
+  {
+    id: 3,
+    title: "Tonight",
+    url: "https://youtu.be/E7s3c3vokOE", 
+  }
+];
