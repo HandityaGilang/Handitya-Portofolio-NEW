@@ -121,7 +121,7 @@ export const projectsData = [
     technologies: ["React.js", "Node.js", "JavaScript"],
     year: "2026",
     status: "Completed",
-    image: "/images/Screenshot 2026-06-17 003159.png",
+    image: "/images/Screenshot 2026-06-17 024311.png",
     liveUrl: "https://52herzt.vercel.app/",
     githubUrl: null
   }
