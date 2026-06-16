@@ -41,7 +41,7 @@ const testimonials = [
     name: "52Herzt",
     role: "2d Artist",
     company: "",
-    content: "AHHH, I absolutely love it! The result truly exceeded my expectations 😭😘😋 The design is clean, neat, and beautifully arranged. They were also very accommodating with detailed revision requests, and the final result was still incredibly satisfying. I’m genuinely so happy with it. Highly recommended!",
+    content: "AHHH, I absolutely love it! The result truly exceeded my expectations 😭😘😋 The design is clean, neat, and beautifully arranged. They were also very accommodating with detailed revision requests, and the final result was still incredibly satisfying. I’m genuinely so happy with it. Highly recommended!!",
     image: "/images/Logo.jpg"
   }
 ];
