@@ -1,240 +1,118 @@
 import { motion } from 'framer-motion';
-import { Linkedin, Zap, Globe, Heart, Youtube, Wallet } from 'lucide-react';
-import { useNavigate } from 'react-router-dom';
+import { Globe, Heart, Stamp } from 'lucide-react';
 import { SOCIAL_LINKS } from '../constants';
 
-const About = ({ isAlterMode, toggleAlterMode, t }) => {
-  const navigate = useNavigate();
-
+const About = ({ isAlterMode, t }) => {
   return (
-    <section id="about" className={`py-20 relative overflow-hidden transition-colors duration-500 ${isAlterMode ? 'bg-portfolio-green text-portfolio-beige' : 'bg-portfolio-beige text-portfolio-dark'}`}>
-      <div className="container mx-auto px-6">
-        <div className="grid md:grid-cols-2 gap-12 items-center">
+    <section id="about" className="py-20 relative border-b-[12px] border-ink mb-20">
+      
+      <div className="flex items-center justify-between border-b-4 border-ink pb-4 mb-12">
+        <h2 className="text-3xl md:text-5xl font-display uppercase bg-ink text-paper px-4 py-2 inline-block">
+          Profile Record
+        </h2>
+        <span className="font-mono text-accent text-sm md:text-base">SEC-02</span>
+      </div>
+
+      <div className="grid md:grid-cols-2 gap-12 items-start">
           
-          {/* Text Content */}
-          <motion.div 
-            className="relative md:pl-12"
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-          >
-             {/* Alter Button - Clickable */}
-             <div className="absolute top-0 -right-4 md:-right-8 z-10 -mt-2">
-              <button
-                onClick={toggleAlterMode}
-                className={`
-                  p-3 rounded-full transition-all duration-300 cursor-pointer
-                  ${isAlterMode 
-                    ? 'bg-portfolio-orange text-portfolio-green shadow-[0_0_20px_rgba(255,215,0,0.5)]' 
-                    : 'bg-portfolio-dark text-portfolio-beige hover:bg-portfolio-orange hover:text-portfolio-dark'}
-                `}
-              >
-                <Zap size={20} className={isAlterMode ? "fill-current" : ""} />
-              </button>
-            </div>
+        {/* Left Side: ID Info */}
+        <motion.div 
+          className="bg-paper border-4 border-ink p-6 relative shadow-[8px_8px_0px_rgba(17,17,17,1)]"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          viewport={{ once: true }}
+        >
+          {/* Decorative screws */}
+          <div className="absolute top-2 left-2 w-2 h-2 rounded-full border border-ink/50 flex items-center justify-center"><div className="w-1 h-[1px] bg-ink/50 rotate-45"></div></div>
+          <div className="absolute top-2 right-2 w-2 h-2 rounded-full border border-ink/50 flex items-center justify-center"><div className="w-1 h-[1px] bg-ink/50 rotate-45"></div></div>
+          <div className="absolute bottom-2 left-2 w-2 h-2 rounded-full border border-ink/50 flex items-center justify-center"><div className="w-1 h-[1px] bg-ink/50 rotate-45"></div></div>
+          <div className="absolute bottom-2 right-2 w-2 h-2 rounded-full border border-ink/50 flex items-center justify-center"><div className="w-1 h-[1px] bg-ink/50 rotate-45"></div></div>
 
-            <h2 className="text-6xl md:text-8xl font-serif leading-none mb-6">
-              {isAlterMode ? (t?.hello_alter || "It's Garda!") : (t?.hello_normal || "Handitya's")} <br />
-              <span className="italic relative inline-block">
-                {isAlterMode ? (t?.here_alter || "Garda.") : (t?.here_normal || "here!")}
-                <motion.svg 
-                  className="absolute -bottom-2 left-0 w-full h-3 text-portfolio-orange"
-                  viewBox="0 0 100 10" 
-                  preserveAspectRatio="none"
-                  initial={{ pathLength: 0 }}
-                  whileInView={{ pathLength: 1 }}
-                  transition={{ duration: 1, delay: 0.5 }}
-                >
-                  <path d="M0 5 Q 50 10 100 5" fill="none" stroke="currentColor" strokeWidth="3" />
-                </motion.svg>
-              </span>
-            </h2>
-            
-            <motion.div
-              key={isAlterMode ? "alter" : "normal"}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-            >
-              <p className="text-sm md:text-xl text-portfolio-dark/80 mb-8 leading-relaxed">
-                {isAlterMode ? (
-                  t?.bio_alter || "Welcome to The other side of me who likes to express with cover songs and content creating. Hoping one day I can make my own song."
-                ) : (
-                  t?.bio_normal || "I am Johanes De Britto Handitya Gilang Wicaksana, an IT graduate with a strong passion for Game Programming, App Development, and Web Development. My goal is to continuously grow in the IT industry and utilize my skills to create impactful solutions for the community."
+          <div className="flex gap-6 items-start">
+             <div className="w-24 h-24 bg-ink/10 border-2 border-ink p-1 shrink-0 group overflow-hidden">
+               <img src={isAlterMode ? "/images/about-alter.jpg" : "/images/about-normal.png"} alt="Thumbnail" className="w-full h-full object-cover grayscale contrast-125 group-hover:grayscale-0 transition-all duration-300" onError={(e) => { e.target.style.display = 'none'; }} />
+             </div>
+             <div>
+                <h3 className="font-display text-3xl mb-1">{isAlterMode ? "Garda" : "Handitya G."}</h3>
+                <div className="font-mono text-xs uppercase space-y-1 mb-4 text-ink/80">
+                  <p>DOB: <span className="bg-ink/10 px-1">CLASSIFIED</span></p>
+                  <p>LOC: <span className="bg-ink/10 px-1">YOGYAKARTA, ID</span></p>
+                  <p>OCC: <span className="bg-ink/10 px-1">{isAlterMode ? "CONTENT CREATOR" : "DEVELOPER"}</span></p>
+                </div>
+             </div>
+          </div>
+          
+          <div className="mt-6 border-t-2 border-ink pt-4 relative">
+             <h4 className="font-mono text-xs font-bold mb-2 uppercase">Official Stamp</h4>
+             <div className="text-accent border-4 border-accent w-32 h-32 rounded-full flex items-center justify-center rotate-[-15deg] mx-auto absolute right-0 -top-10 opacity-70 mix-blend-multiply pointer-events-none hover:rotate-[-5deg] transition-transform">
+               <div className="border-2 border-accent w-28 h-28 rounded-full flex items-center justify-center p-2 text-center">
+                 <span className="font-display text-2xl uppercase font-bold tracking-wider leading-none">Verified<br/>Active</span>
+               </div>
+             </div>
+             
+             {/* Small social links as codes */}
+             <div className="font-mono text-[10px] space-y-1 mt-8 text-ink/60 uppercase">
+                <a href={SOCIAL_LINKS.LINKEDIN} target="_blank" rel="noopener noreferrer" className="block hover:text-accent hover:underline">EXT_LINK: LINKEDIN_PROFILE</a>
+                {isAlterMode && (
+                   <a href={SOCIAL_LINKS.YOUTUBE} target="_blank" rel="noopener noreferrer" className="block hover:text-accent hover:underline">EXT_LINK: YOUTUBE_CHANNEL</a>
                 )}
-              </p>
+             </div>
+          </div>
+        </motion.div>
 
-              {/* NEW SECTION: Languages & Hobbies */}
-              {!isAlterMode && (
-                <div className="grid grid-cols-2 gap-6 mb-8">
-                  <div>
-                    <h3 className="font-serif text-2xl mb-2 flex items-center gap-2">
-                      <Globe size={20} className="text-portfolio-orange" />
-                      {t?.languages || "Languages"}
-                    </h3>
-                    <ul className="text-portfolio-dark/80 space-y-1 text-sm md:text-base">
-                      <li>Bahasa Indonesia <span className="text-portfolio-orange text-xs">(Native)</span></li>
-                      <li>English <span className="text-portfolio-orange text-xs">(Professional)</span></li>
-                      <li>German <span className="text-portfolio-orange text-xs">(A1)</span></li>
-                    </ul>
-                  </div>
-                  <div>
-                    <h3 className="font-serif text-2xl mb-2 flex items-center gap-2">
-                      <Heart size={20} className="text-portfolio-orange" />
-                      {t?.hobbies || "Hobbies & Interest"}
-                    </h3>
-                    <ul className="text-portfolio-dark/80 space-y-1 text-sm md:text-base">
-                      <li>Traveling & Culinary</li>
-                      <li>Singing</li>
-                      <li>Game Dev & Modern Tech</li>
-                    </ul>
-                  </div>
-                </div>
+        {/* Right Side: Text Content */}
+        <motion.div 
+          className="relative text-lg md:text-xl font-sans"
+          initial={{ opacity: 0, x: 20 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          viewport={{ once: true }}
+        >
+          <div className="prose prose-lg prose-p:leading-relaxed max-w-none text-ink">
+            <p className="mb-6 font-medium">
+              {isAlterMode ? (
+                t?.bio_alter || "Welcome to The other side of me who likes to express with cover songs and content creating. Hoping one day I can make my own song."
+              ) : (
+                t?.bio_normal || "I am Johanes De Britto Handitya Gilang Wicaksana, an IT graduate with a strong passion for Game Programming, App Development, and Web Development. My goal is to continuously grow in the IT industry and utilize my skills to create impactful solutions for the community."
               )}
-            </motion.div>
-
-            <motion.a 
-              href={isAlterMode ? SOCIAL_LINKS.YOUTUBE : SOCIAL_LINKS.LINKEDIN} 
-              target="_blank"
-              rel="noopener noreferrer"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="inline-flex items-center gap-2 bg-portfolio-orange text-portfolio-dark px-8 py-3 rounded-full font-bold shadow-lg hover:bg-gray-200 transition-colors"
-            >
-              {isAlterMode ? <Youtube size={20} /> : <Linkedin size={20} />}
-              {isAlterMode ? "youtube.com/@Garda" : "LinkedIn Profile"}
-            </motion.a>
-
-            <div className="mt-4">
-              <motion.button 
-                onClick={() => navigate('/commission')}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className={`inline-flex items-center gap-2 px-8 py-3 rounded-full font-bold shadow-lg transition-colors ${
-                  isAlterMode 
-                  ? 'bg-portfolio-orange text-portfolio-dark hover:bg-portfolio-beige' 
-                  : 'bg-portfolio-dark text-portfolio-beige hover:bg-portfolio-orange hover:text-portfolio-dark'
-                }`}
-              >
-                <Wallet size={20} />
-                Commission Me
-              </motion.button>
+            </p>
+            
+            {/* Highlighted text styling using background */}
+            <div className="bg-accent-dim border-l-4 border-accent p-4 font-mono text-sm mb-8 text-ink shadow-sm">
+              <span className="font-bold uppercase mb-1 block opacity-50">Observer Note:</span>
+              Subject shows high aptitude in <span className="font-bold underline decoration-accent decoration-2 underline-offset-2">{isAlterMode ? "creative expression" : "problem solving and logical structuring"}</span>.
             </div>
-          </motion.div>
+          </div>
 
-          {/* Image Placeholder */}
-          <motion.div 
-            animate={{ 
-              rotate: isAlterMode ? 360 : 0,
-              scale: isAlterMode ? 0.9 : 1
-            }}
-            transition={{ duration: 0.8, type: "spring" }}
-            className="relative"
-          >
-            {isAlterMode ? (
-              /* ALTER MODE - Original Design */
-              <div className="relative w-full aspect-square max-w-md mx-auto">
-                <div className="absolute top-10 right-0 w-3/4 h-3/4 rounded-full opacity-20 blur-3xl bg-portfolio-yellow transition-colors duration-500"></div>
-                
-                <div className="relative z-10 bg-portfolio-dark text-portfolio-beige w-full h-full rounded-2xl overflow-hidden flex items-center justify-center border-4 border-portfolio-orange">
-                   <img 
-                     src="/images/about-alter.jpg"
-                     alt="Garda"
-                     className="w-full h-full object-cover"
-                     onError={(e) => {
-                       const target = e.target;
-                       if (target.src.includes('.jpg')) {
-                         target.src = target.src.replace('.jpg', '.png');
-                       } else {
-                         target.style.display = 'none';
-                         target.nextSibling.style.display = 'block';
-                       }
-                     }}
-                   />
-                   
-                   <div className="hidden text-center p-8 w-full">
-                    <p className="font-serif italic text-2xl opacity-50">[Garda]</p>
-                    <p className="text-sm mt-2 opacity-30">Simpan 'about-alter.jpg' (atau .png) di public/images/</p>
-                  </div>
-                </div>
+          {/* Languages & Hobbies */}
+          {!isAlterMode && (
+            <div className="grid sm:grid-cols-2 gap-8 mt-12 pt-8 border-t-2 border-ink border-dashed">
+              <div>
+                <h3 className="font-display text-2xl mb-4 flex items-center gap-2 uppercase tracking-wider bg-ink text-paper px-2 inline-flex">
+                  <Globe size={18} className="text-accent" />
+                  {t?.languages || "Languages"}
+                </h3>
+                <ul className="font-mono text-sm space-y-2">
+                  <li className="flex justify-between border-b border-ink/10 pb-1"><span>[ID] Indonesian</span> <span className="text-accent font-bold">Native</span></li>
+                  <li className="flex justify-between border-b border-ink/10 pb-1"><span>[EN] English</span> <span className="text-ink font-bold">Proficient</span></li>
+                  <li className="flex justify-between border-b border-ink/10 pb-1"><span>[DE] German</span> <span className="text-ink/50">A1</span></li>
+                </ul>
               </div>
-            ) : (
-              /* NORMAL MODE - Poster Design */
-              <div className="relative w-full aspect-[3/4] max-w-md mx-auto mt-12">
-                {/* 1. Green Background Card - Dikecilkan */}
-                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[75%] h-[75%] bg-[#1F3933] rounded-sm shadow-2xl">
-                    {/* 2. White Circle */}
-                    <div className="absolute top-12 left-1/2 -translate-x-1/2 w-32 h-32 md:w-40 md:h-40 bg-[#F5F0E6] rounded-full"></div>
-                </div>
-
-                {/* 3. The Person Image (PNG) - OUT OF FRAME (Z-Index lebih tinggi) */}
-                <img 
-                    src="/images/about-normal.png"
-                    alt="Handitya"
-                    className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[85%] md:w-[95%] object-contain z-30 drop-shadow-2xl"
-                    style={{ maxHeight: '120%' }}
-                    onError={(e) => {
-                        if (e.target.src.includes('.png')) {
-                            e.target.src = e.target.src.replace('.png', '.jpg');
-                        }
-                    }}
-                />
-
-                {/* 6. AI Disclaimer Bubble (Circle Frame) */}
-                <motion.div 
-                    initial={{ scale: 0, opacity: 0 }}
-                    whileInView={{ scale: 1, opacity: 1 }}
-                    transition={{ delay: 0.8, type: "spring" }}
-                    className="absolute top-10 right-0 md:-right-8 z-50"
-                >
-                    {/* The Circle */}
-                    <div className="w-20 h-20 md:w-32 md:h-32 bg-white rounded-full border-4 border-portfolio-orange shadow-xl overflow-hidden flex items-center justify-center relative z-20">
-                         <img 
-                            src="/images/real-face.png" 
-                            alt="Real Face" 
-                            className="w-full h-full object-cover"
-                            onError={(e) => {
-                                // Fallback jika real-face.jpg belum ada, pakai about-normal.png
-                                if (!e.target.src.includes('about-normal.png')) {
-                                    e.target.src = '/images/about-normal.png';
-                                }
-                            }}
-                         />
-                    </div>
-                </motion.div>
-
-                {/* 4. Floating Pills */}
-                <motion.div 
-                    initial={{ x: -50, opacity: 0 }}
-                    whileInView={{ x: 0, opacity: 1 }}
-                    transition={{ delay: 0.5 }}
-                    className="absolute top-[30%] -left-4 md:-left-8 bg-portfolio-orange text-portfolio-dark px-5 py-2 rounded-full font-bold shadow-lg z-40 text-xs whitespace-nowrap"
-                >
-                    {t?.labels?.web || 'Web Developer'}
-                </motion.div>
-
-                <motion.div 
-                    initial={{ x: 50, opacity: 0 }}
-                    whileInView={{ x: 0, opacity: 1 }}
-                    transition={{ delay: 0.7 }}
-                    className="absolute top-[50%] -right-4 md:-right-8 bg-portfolio-orange text-portfolio-dark px-5 py-2 rounded-full font-bold shadow-lg z-40 text-xs whitespace-nowrap"
-                >
-                    {t?.labels?.game || 'Game Programmer'}
-                </motion.div>
-
-                <motion.div 
-                    initial={{ x: -50, opacity: 0 }}
-                    whileInView={{ x: 0, opacity: 1 }}
-                    transition={{ delay: 0.9 }}
-                    className="absolute top-[70%] -left-4 md:-left-8 bg-portfolio-orange text-portfolio-dark px-5 py-2 rounded-full font-bold shadow-lg z-40 text-xs whitespace-nowrap"
-                >
-                    {t?.labels?.app || 'App Developer'}
-                </motion.div>
+              <div>
+                <h3 className="font-display text-2xl mb-4 flex items-center gap-2 uppercase tracking-wider bg-ink text-paper px-2 inline-flex">
+                  <Heart size={18} className="text-accent" />
+                  {t?.hobbies || "Interests"}
+                </h3>
+                <ul className="font-mono text-sm space-y-2 list-disc list-inside">
+                  <li>Traveling & Culinary</li>
+                  <li>Singing</li>
+                  <li>Game Dev & Modern Tech</li>
+                </ul>
               </div>
-            )}
-          </motion.div>
-        </div>
+            </div>
+          )}
+        </motion.div>
       </div>
     </section>
   );

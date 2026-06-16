@@ -7,6 +7,8 @@ import Commission from './components/Commission';
 import LoadingScreen from './components/LoadingScreen';
 import { translations } from './translations';
 
+import DossierFrame from './components/DossierFrame';
+
 function App() {
   const [isAlterMode, setIsAlterMode] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
@@ -34,8 +36,8 @@ function App() {
       </AnimatePresence>
       
       {!isLoading && (
-        <div className={`min-h-screen flex justify-center transition-colors duration-500 ${isAlterMode ? 'bg-portfolio-yellow' : 'bg-black'}`}>
-          <div className={`w-full max-w-[1440px] relative shadow-2xl overflow-hidden ${isAlterMode ? 'alter-mode bg-portfolio-dark' : 'bg-portfolio-beige'}`}>
+        <div className={`min-h-screen flex justify-center transition-colors duration-500 bg-frame py-0 md:py-8 ${isAlterMode ? 'alter-mode' : ''}`}>
+          <DossierFrame isAlterMode={isAlterMode}>
             
             <Routes>
               <Route path="/" element={<Home isAlterMode={isAlterMode} toggleAlterMode={() => setIsAlterMode(!isAlterMode)} t={t} />} />
@@ -47,16 +49,16 @@ function App() {
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
               onClick={toggleLanguage}
-              className={`fixed bottom-8 right-8 z-50 px-4 py-2 rounded-full font-bold shadow-xl flex items-center gap-2 transition-colors duration-300 ${
+              className={`fixed bottom-8 right-8 z-50 px-4 py-2 font-mono text-xs font-bold border-2 shadow-xl flex items-center gap-2 transition-colors duration-300 ${
                 isAlterMode 
-                  ? 'bg-portfolio-orange text-portfolio-dark hover:bg-portfolio-beige' 
-                  : 'bg-portfolio-dark text-portfolio-beige hover:bg-portfolio-orange hover:text-portfolio-dark'
+                  ? 'bg-ink text-accent border-accent hover:bg-accent hover:text-ink' 
+                  : 'bg-ink text-paper border-ink hover:bg-accent hover:border-accent hover:text-paper'
               }`}
             >
-              <Globe size={18} />
+              <Globe size={14} />
               <span>{language === 'en' ? 'EN' : 'ID'}</span>
             </motion.button>
-          </div>
+          </DossierFrame>
         </div>
       )}
     </>

@@ -4,38 +4,42 @@
 
 @layer base {
   :root {
-    /* Default Theme: Modern Slate */
-    --color-portfolio-green: #262626;
-    --color-portfolio-beige: #F5F5F5;
-    --color-portfolio-orange: #D4D4D4;
-    --color-portfolio-yellow: #737373;
-    --color-portfolio-dark: #171717;
+    /* Professional Mode: Classified Data File */
+    --color-paper: #EAE6DF; /* Warm off-white */
+    --color-ink: #111111; /* Charcoal black */
+    --color-accent: #E81C6C; /* Vivid magenta */
+    --color-accent-dim: rgba(232, 28, 108, 0.2);
+    --color-muted: #848484; /* Industrial gray */
+    --color-frame: #0A0A0A; /* Dark mechanical frame */
   }
 
   .alter-mode {
-    /* Alter Theme: Green & Yellow */
-    --color-portfolio-green: #1E3932; /* Deep Forest Green */
-    --color-portfolio-beige: #FFF8E7; /* Cosmic Latte */
-    --color-portfolio-orange: #FFD700; /* Gold */
-    --color-portfolio-yellow: #C5A000; /* Darker Gold */
-    --color-portfolio-dark: #0F1C18; /* Black Green */
+    /* Alternate Mode: Creative Identity File */
+    --color-paper: #EAE6DF; /* Keep same paper base */
+    --color-ink: #111111;
+    --color-accent: #E8B000; /* Warm yellow/orange */
+    --color-accent-dim: rgba(232, 176, 0, 0.2);
+    --color-muted: #848484;
+    --color-frame: #0A0A0A;
   }
 
   html {
     scroll-behavior: smooth;
   }
   body {
-    @apply bg-portfolio-green text-portfolio-beige font-sans;
-    transition: background-color 0.5s ease, color 0.5s ease;
+    @apply bg-frame text-ink font-sans;
   }
   h1, h2, h3, h4, h5, h6 {
-    @apply font-serif;
+    @apply font-display tracking-wider;
   }
 }
 
 @layer utilities {
   .font-outline-text {
-    -webkit-text-stroke: 2px currentColor;
+    -webkit-text-stroke: 1px currentColor;
     color: transparent;
+  }
+  .bg-halftone-size {
+    background-size: 4px 4px;
   }
 }

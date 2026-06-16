@@ -7,16 +7,21 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Theme: Dynamic via CSS Variables
-        'portfolio-green': 'var(--color-portfolio-green)', 
-        'portfolio-beige': 'var(--color-portfolio-beige)', 
-        'portfolio-orange': 'var(--color-portfolio-orange)', 
-        'portfolio-yellow': 'var(--color-portfolio-yellow)', 
-        'portfolio-dark': 'var(--color-portfolio-dark)', 
+        'paper': 'var(--color-paper)',
+        'ink': 'var(--color-ink)',
+        'accent': 'var(--color-accent)',
+        'accent-dim': 'var(--color-accent-dim)',
+        'muted': 'var(--color-muted)',
+        'frame': 'var(--color-frame)',
       },
       fontFamily: {
-        serif: ['Playfair Display', 'serif'],
         sans: ['Inter', 'sans-serif'],
+        display: ['"Bebas Neue"', 'sans-serif'],
+        mono: ['"Space Mono"', 'monospace'],
+      },
+      backgroundImage: {
+        'paper-texture': "url('data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.65%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22 opacity=%220.05%22/%3E%3C/svg%3E')",
+        'halftone': "radial-gradient(circle, var(--color-ink) 1px, transparent 1px)",
       }
     },
   },

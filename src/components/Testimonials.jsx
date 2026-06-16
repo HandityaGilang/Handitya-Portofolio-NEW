@@ -1,124 +1,85 @@
 import { motion } from 'framer-motion';
-import { Quote, Plus, User } from 'lucide-react';
+import { Quote, User, CheckCircle2 } from 'lucide-react';
 
-/* 
-  PANDUAN MENAMBAH TESTIMONIAL BARU:
-  1. Tambahkan object baru ke dalam array 'testimonials' di bawah.
-  2. Format:
-     {
-       id: angka_unik,
-       name: "Nama Orang",
-       role: "Jabatan",
-       company: "Perusahaan/Instansi",
-       content: "Isi testimoni...",
-       image: "/images/nama-file-foto.jpg" (Pastikan foto ada di folder public/images)
-     }
-  3. Jika ingin menambahkan foto sendiri:
-     - Siapkan foto (rasio 1:1 atau kotak disarankan).
-     - Masukkan ke folder 'public/images/'.
-     - Ganti properti 'image' dengan path foto tersebut.
-*/
-
-const testimonials = [
-  // {
-  //   id: 1,
-  //   name: "Sarah Johnson",
-  //   role: "Creative Director",
-  //   company: "Studio Alpha",
-  //   content: "Handitya's ability to translate complex concepts into stunning visual experiences is unmatched.",
-  //   image: "https://randomuser.me/api/portraits/women/44.jpg"
-  // },
-  // {
-  //   id: 2,
-  //   name: "Michael Chen",
-  //   role: "Tech Lead",
-  //   company: "InnovateCorp",
-  //   content: "Working with Garda (his alter ego) was a wild ride! The creativity he brought to our experimental campaign was exactly what we needed.",
-  //   image: "https://randomuser.me/api/portraits/men/32.jpg"
-  // },
-  // {
-  //   id: 3,
-  //   name: "Jessica Williams",
-  //   role: "Marketing Manager",
-  //   company: "BrandFlow",
-  //   content: "The attention to detail in his work is incredible. From the micro-interactions to the overall layout, everything feels polished.",
-  //   image: "https://randomuser.me/api/portraits/women/68.jpg"
-  // },
-  // {
-  //   id: 4,
-  //   name: "David Smith",
-  //   role: "CEO",
-  //   company: "StartUp Inc",
-  //   content: "Highly recommended! Delivered the project on time and with great quality.",
-  //   image: "https://randomuser.me/api/portraits/men/45.jpg"
-  // }
-];
+const testimonials = [];
 
 const Testimonials = ({ isAlterMode }) => {
   return (
-    <section className={`py-20 overflow-hidden transition-colors duration-500 ${isAlterMode ? 'bg-portfolio-green text-portfolio-beige' : 'bg-portfolio-beige text-portfolio-dark'}`}>
-      <div className="container mx-auto px-6">
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-4xl md:text-6xl font-serif mb-4">Testimonials</h2>
-          <p className="text-portfolio-orange text-sm uppercase tracking-widest">What people say</p>
-        </motion.div>
+    <section className="py-20 border-b-[12px] border-ink mb-20 relative overflow-hidden">
+      
+      <div className="flex items-center justify-between border-b-4 border-ink pb-4 mb-12">
+        <h2 className="text-3xl md:text-5xl font-display uppercase bg-ink text-paper px-4 py-2 inline-block">
+          External Reports
+        </h2>
+        <span className="font-mono text-accent text-sm md:text-base hidden sm:inline">TYPE: EVALUATION</span>
+      </div>
 
-        {/* Scrollable Container */}
-        <div className="relative">
-          {testimonials.length > 0 ? (
-            <div className="flex overflow-x-auto gap-8 pb-8 snap-x snap-mandatory hide-scrollbar">
-              {testimonials.map((testimonial, index) => (
-                <motion.div
-                  key={testimonial.id}
-                  initial={{ opacity: 0, x: 50 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                  className={`min-w-[300px] md:min-w-[400px] snap-center p-8 rounded-2xl relative flex-shrink-0 ${isAlterMode ? 'bg-portfolio-dark border border-portfolio-green/20' : 'bg-white shadow-xl'}`}
-                >
-                  <Quote className={`absolute top-8 right-8 w-10 h-10 opacity-20 ${isAlterMode ? 'text-portfolio-orange' : 'text-portfolio-green'}`} />
-                  
-                  <p className={`mb-8 relative z-10 italic ${isAlterMode ? 'text-portfolio-beige/80' : 'text-portfolio-dark/80'}`}>
-                    "{testimonial.content}"
-                  </p>
-
-                  <div className="flex items-center gap-4">
+      <div className="relative">
+        {testimonials.length > 0 ? (
+          <div className="grid md:grid-cols-2 gap-8">
+            {testimonials.map((testimonial, index) => (
+              <motion.div
+                key={testimonial.id}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                className="bg-paper border-4 border-ink p-6 relative shadow-[8px_8px_0px_rgba(17,17,17,1)] flex flex-col"
+              >
+                {/* Stamp */}
+                <div className="absolute top-4 right-4 rotate-12 opacity-80 flex items-center gap-1 text-accent border-2 border-accent px-2 py-1">
+                  <CheckCircle2 size={14} />
+                  <span className="font-display uppercase text-sm font-bold">Verified</span>
+                </div>
+                
+                <div className="flex items-center gap-4 mb-6 border-b-2 border-ink pb-4">
+                  <div className="w-16 h-16 border-2 border-ink bg-ink/10 p-1">
                     <img 
                       src={testimonial.image} 
                       alt={testimonial.name} 
-                      className="w-12 h-12 rounded-full object-cover border-2 border-portfolio-orange"
-                      onError={(e) => { e.target.src = "https://via.placeholder.com/150"; }} 
+                      className="w-full h-full object-cover grayscale contrast-125"
+                      onError={(e) => { e.target.style.display = 'none'; }} 
                     />
-                    <div>
-                      <h4 className="font-bold font-serif">{testimonial.name}</h4>
-                      <p className={`text-xs uppercase tracking-wider ${isAlterMode ? 'text-portfolio-yellow' : 'text-portfolio-orange'}`}>
-                        {testimonial.role}, {testimonial.company}
-                      </p>
-                    </div>
                   </div>
-                </motion.div>
-              ))}
-            </div>
-          ) : (
-            // Empty State
-            <div className={`text-center py-12 border-2 border-dashed rounded-xl ${isAlterMode ? 'border-portfolio-green/30 text-portfolio-green/50' : 'border-portfolio-dark/20 text-portfolio-dark/50'}`}>
-               <div className="flex flex-col items-center justify-center gap-4">
-                 <User size={48} className="opacity-50" />
-                 <p className="text-xl font-serif">Belum ada testimoni saat ini.</p>
-                 <p className="text-sm opacity-70 max-w-md mx-auto">
-                   Testimoni dari klien akan muncul di sini. <br/>
-                 </p>
-               </div>
-            </div>
-          )}
-        </div>
+                  <div>
+                    <h4 className="font-display text-2xl uppercase leading-none mb-1">{testimonial.name}</h4>
+                    <p className="font-mono text-[10px] uppercase text-ink/60">
+                      ID: {testimonial.role} <br/>
+                      ORG: {testimonial.company}
+                    </p>
+                  </div>
+                </div>
 
+                <div className="relative flex-1">
+                  <Quote className="absolute -top-2 -left-2 w-8 h-8 opacity-10 text-ink rotate-180" />
+                  <p className="font-mono text-sm leading-relaxed text-ink/80 z-10 relative">
+                    {testimonial.content}
+                  </p>
+                </div>
+                
+                <div className="mt-6 pt-4 border-t-2 border-ink border-dashed flex justify-between font-mono text-[10px] uppercase text-ink/50">
+                  <span>REPORT_ID: EVAL-{testimonial.id.toString().padStart(4, '0')}</span>
+                  <span>{new Date().getFullYear()}</span>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        ) : (
+          // Empty State
+          <div className="bg-paper border-4 border-ink border-dashed p-12 text-center relative max-w-2xl mx-auto">
+             {/* Corner tape */}
+             <div className="absolute -top-4 -left-4 w-12 h-6 bg-white/50 backdrop-blur-sm -rotate-45 border border-ink/10"></div>
+             <div className="absolute -bottom-4 -right-4 w-12 h-6 bg-white/50 backdrop-blur-sm -rotate-45 border border-ink/10"></div>
+             
+             <div className="flex flex-col items-center justify-center gap-4">
+               <User size={48} className="text-ink/20 mb-4" />
+               <p className="text-3xl font-display uppercase text-ink/40">NO EVALUATION RECORDS FOUND</p>
+               <p className="font-mono text-xs uppercase text-ink/50">
+                 External evaluation reports have not yet been filed for this subject.
+               </p>
+             </div>
+          </div>
+        )}
       </div>
     </section>
   );

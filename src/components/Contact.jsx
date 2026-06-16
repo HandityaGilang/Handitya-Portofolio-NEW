@@ -1,8 +1,6 @@
 import { motion } from 'framer-motion';
-import { Mail, MapPin, Phone, Instagram, Linkedin, Youtube, Twitter, Wallet, Gamepad2 } from 'lucide-react';
+import { Mail, MapPin, Phone, Instagram, Linkedin, Youtube, Twitter, Wallet, Terminal } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
-import Lottie from 'lottie-react';
-import starAnimation from '../assets/star.json';
 import { SOCIAL_LINKS } from '../constants';
 
 const DiscordIcon = ({ size = 24, className = "" }) => (
@@ -26,155 +24,141 @@ const Contact = ({ isAlterMode, t }) => {
   const navigate = useNavigate();
 
   return (
-    <footer id="contact" className={`bg-portfolio-beige text-portfolio-dark py-20 relative transition-colors duration-500 ${isAlterMode ? 'bg-portfolio-dark text-portfolio-green' : ''}`}>
-      <div className="container mx-auto px-6">
-        
-        <div className={`rounded-[3rem] p-10 md:p-20 relative overflow-hidden transition-colors duration-500 ${isAlterMode ? 'bg-portfolio-green text-portfolio-dark' : 'bg-portfolio-dark text-portfolio-beige'}`}>
-          {/* Decorative Circle */}
-          <div className="absolute top-0 right-0 w-64 h-64 bg-portfolio-orange rounded-full translate-x-1/3 -translate-y-1/3 opacity-20 blur-3xl"></div>
+    <footer id="contact" className="py-20 relative">
+      <div className="flex items-center justify-between border-b-4 border-ink pb-4 mb-12">
+        <h2 className="text-3xl md:text-5xl font-display uppercase bg-ink text-paper px-4 py-2 inline-block flex items-center gap-3">
+          <Terminal size={32} />
+          {isAlterMode ? "Open Transmission" : "Communication Terminal"}
+        </h2>
+        <span className="font-mono text-accent text-sm md:text-base hidden sm:inline">PORT: 8080</span>
+      </div>
+
+      <div className="bg-ink text-paper p-8 md:p-12 border-4 border-ink shadow-[12px_12px_0px_rgba(232,28,108,1)] relative">
+        {/* Terminal Header */}
+        <div className="flex gap-2 mb-8 border-b border-paper/20 pb-4">
+          <div className="w-3 h-3 rounded-full bg-accent"></div>
+          <div className="w-3 h-3 rounded-full bg-paper/50"></div>
+          <div className="w-3 h-3 rounded-full bg-paper/20"></div>
+        </div>
+
+        <div className="grid md:grid-cols-2 gap-12 relative z-10">
           
-          {/* Lottie Star Animation */}
-          <div className="absolute top-10 right-10 w-32 h-32 md:w-48 md:h-48 opacity-90 pointer-events-none">
-            <Lottie animationData={starAnimation} loop={true} />
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-12 relative z-10">
-            
-            <div>
-              <h2 className="text-5xl md:text-7xl font-serif mb-8">
-                {isAlterMode ? (
-                  <>
-                    {t?.title_alter || 'Up to date'} <br />
-                    <span className="text-portfolio-orange italic">{t?.subtitle_alter || 'with me!'}</span>
-                  </>
-                ) : (
-                  <>
-                    {t?.title_normal || "Let's work"} <br />
-                    <span className="text-portfolio-orange italic">{t?.subtitle_normal || 'together!'}</span>
-                  </>
-                )}
-              </h2>
-              <p className={`text-lg mb-8 max-w-md ${isAlterMode ? 'text-portfolio-dark/60' : 'text-portfolio-beige/60'}`}>
-                {isAlterMode 
-                  ? (t?.desc_alter || "Follow my latest adventures, experiments, and creative chaos on social media.")
-                  : (t?.desc_normal || "I'm always open to discussing product design work or partnership opportunities.")}
-              </p>
-
-              {!isAlterMode && (
-                <motion.button 
-                  onClick={() => navigate('/commission')}
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className={`inline-flex items-center gap-2 px-8 py-4 rounded-full font-bold shadow-xl transition-all ${
-                    isAlterMode 
-                    ? 'bg-portfolio-orange text-portfolio-dark hover:bg-portfolio-green hover:text-portfolio-dark border-2 border-transparent hover:border-portfolio-dark' 
-                    : 'bg-portfolio-orange text-portfolio-dark hover:bg-portfolio-beige hover:text-portfolio-dark'
-                  }`}
-                >
-                  <Wallet size={20} />
-                  <span>Start a Project / Commission</span>
-                </motion.button>
-              )}
-            </div>
-
-            <div className="space-y-6 flex flex-col justify-center">
+          <div>
+            <h2 className="text-4xl md:text-6xl font-display mb-6 text-accent">
               {isAlterMode ? (
-                 // Social Media Links for Garda
-                <div className="grid grid-cols-1 gap-4">
-                   <motion.a 
-                    href={SOCIAL_LINKS.YOUTUBE}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    whileHover={{ x: 10 }}
-                    className="flex items-center gap-4 text-xl group"
-                  >
-                    <div className="w-12 h-12 rounded-full bg-portfolio-dark flex items-center justify-center text-portfolio-orange group-hover:bg-portfolio-orange group-hover:text-portfolio-dark transition-colors">
-                      <Youtube size={24} />
-                    </div>
-                    <span>Youtube Channel</span>
-                  </motion.a>
-                  
-                  <motion.a 
-                    href={SOCIAL_LINKS.INSTAGRAM}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    whileHover={{ x: 10 }}
-                    className="flex items-center gap-4 text-xl group"
-                  >
-                    <div className="w-12 h-12 rounded-full bg-portfolio-dark flex items-center justify-center text-portfolio-orange group-hover:bg-portfolio-orange group-hover:text-portfolio-dark transition-colors">
-                      <Instagram size={24} />
-                    </div>
-                    <span>@garda.creative</span>
-                  </motion.a>
-
-                   <motion.a 
-                    href="#"
-                    whileHover={{ x: 10 }}
-                    className="flex items-center gap-4 text-xl group"
-                  >
-                    <div className="w-12 h-12 rounded-full bg-portfolio-dark flex items-center justify-center text-portfolio-orange group-hover:bg-portfolio-orange group-hover:text-portfolio-dark transition-colors">
-                      <Twitter size={24} />
-                    </div>
-                    <span>@garda_tweets</span>
-                  </motion.a>
-                </div>
-              ) : (
-                // Contact Info for Handitya
                 <>
-                  <motion.div 
-                    whileHover={{ x: 10 }}
-                    className="flex items-center gap-4 text-xl"
-                  >
-                    <div className="w-12 h-12 rounded-full bg-portfolio-green flex items-center justify-center text-portfolio-orange">
-                      <MapPin size={24} />
-                    </div>
-                    <span>Indonesia, Yogyakarta</span>
-                  </motion.div>
-
-                  <motion.div 
-                    whileHover={{ x: 10 }}
-                    className="flex items-center gap-4 text-xl"
-                  >
-                    <div className="w-12 h-12 rounded-full bg-portfolio-green flex items-center justify-center text-portfolio-orange">
-                      <Mail size={24} />
-                    </div>
-                    <a href="mailto:hanhandityagw@gmail.com" className="hover:text-portfolio-orange transition-colors">hanhandityagw@gmail.com</a>
-                  </motion.div>
-
-                  <motion.div 
-                    whileHover={{ x: 10 }}
-                    className="flex items-center gap-4 text-xl"
-                  >
-                    <div className="w-12 h-12 rounded-full bg-portfolio-green flex items-center justify-center text-portfolio-orange">
-                      <Phone size={24} />
-                    </div>
-                    <span>+62 831 0852 7143</span>
-                  </motion.div>
-
-                  <motion.div 
-                    whileHover={{ x: 10 }}
-                    className="flex items-center gap-4 text-xl"
-                  >
-                    <div className="w-12 h-12 rounded-full bg-portfolio-green flex items-center justify-center text-portfolio-orange">
-                      <DiscordIcon size={24} />
-                    </div>
-                    <span>han_garda</span>
-                  </motion.div>
+                  {t?.title_alter || 'Up to date'} <br />
+                  <span className="text-paper">{t?.subtitle_alter || 'with me!'}</span>
+                </>
+              ) : (
+                <>
+                  {t?.title_normal || "Let's work"} <br />
+                  <span className="text-paper">{t?.subtitle_normal || 'together!'}</span>
                 </>
               )}
-            </div>
+            </h2>
+            <p className="text-lg mb-8 font-mono max-w-md text-paper/70">
+              {isAlterMode 
+                ? (t?.desc_alter || "Follow my latest adventures, experiments, and creative chaos on social media.")
+                : (t?.desc_normal || "I'm always open to discussing product design work or partnership opportunities.")}
+            </p>
 
+            {!isAlterMode && (
+              <motion.button 
+                onClick={() => navigate('/commission')}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="inline-flex items-center gap-2 px-8 py-4 bg-accent text-ink font-display text-xl uppercase hover:bg-paper transition-colors shadow-lg"
+              >
+                <Wallet size={20} />
+                <span>INIT_COMMISSION</span>
+              </motion.button>
+            )}
           </div>
 
-          <div className="mt-20 pt-8 border-t border-portfolio-beige/10 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-portfolio-beige/40">
-            <p>&copy; 2026 Handitya. All rights reserved.</p>
-            <div className="flex gap-6">
-              <a href={SOCIAL_LINKS.INSTAGRAM_PERSONAL} className="hover:text-portfolio-orange transition-colors" target="_blank" rel="noopener noreferrer">Instagram</a>
-              <a href={SOCIAL_LINKS.LINKEDIN} className="hover:text-portfolio-orange transition-colors" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-              <a href={SOCIAL_LINKS.GITHUB} className="hover:text-portfolio-orange transition-colors" target="_blank" rel="noopener noreferrer">GitHub</a>
-            </div>
+          <div className="space-y-4 flex flex-col justify-center font-mono">
+            {isAlterMode ? (
+               // Social Media Links for Garda
+              <div className="grid grid-cols-1 gap-4">
+                 <motion.a 
+                  href={SOCIAL_LINKS.YOUTUBE}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  whileHover={{ x: 10 }}
+                  className="flex items-center gap-4 text-sm uppercase group border border-paper/20 p-4 hover:border-accent hover:bg-accent/10 transition-colors"
+                >
+                  <Youtube size={20} className="text-accent group-hover:text-paper" />
+                  <span>EXT_LINK: YOUTUBE_CHANNEL</span>
+                </motion.a>
+                
+                <motion.a 
+                  href={SOCIAL_LINKS.INSTAGRAM}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  whileHover={{ x: 10 }}
+                  className="flex items-center gap-4 text-sm uppercase group border border-paper/20 p-4 hover:border-accent hover:bg-accent/10 transition-colors"
+                >
+                  <Instagram size={20} className="text-accent group-hover:text-paper" />
+                  <span>EXT_LINK: INSTAGRAM (@garda.creative)</span>
+                </motion.a>
+
+                 <motion.a 
+                  href="#"
+                  whileHover={{ x: 10 }}
+                  className="flex items-center gap-4 text-sm uppercase group border border-paper/20 p-4 hover:border-accent hover:bg-accent/10 transition-colors"
+                >
+                  <Twitter size={20} className="text-accent group-hover:text-paper" />
+                  <span>EXT_LINK: TWITTER (@garda_tweets)</span>
+                </motion.a>
+              </div>
+            ) : (
+              // Contact Info for Handitya
+              <>
+                <motion.div 
+                  whileHover={{ x: 10 }}
+                  className="flex items-center gap-4 text-sm uppercase border-l-2 border-accent pl-4"
+                >
+                  <MapPin size={20} className="text-accent" />
+                  <span>LOC: Indonesia, Yogyakarta</span>
+                </motion.div>
+
+                <motion.div 
+                  whileHover={{ x: 10 }}
+                  className="flex items-center gap-4 text-sm uppercase border-l-2 border-accent pl-4"
+                >
+                  <Mail size={20} className="text-accent" />
+                  <a href="mailto:hanhandityagw@gmail.com" className="hover:text-accent transition-colors">MAILTO: hanhandityagw@gmail.com</a>
+                </motion.div>
+
+                <motion.div 
+                  whileHover={{ x: 10 }}
+                  className="flex items-center gap-4 text-sm uppercase border-l-2 border-accent pl-4"
+                >
+                  <Phone size={20} className="text-accent" />
+                  <span>TEL: +62 831 0852 7143</span>
+                </motion.div>
+
+                <motion.div 
+                  whileHover={{ x: 10 }}
+                  className="flex items-center gap-4 text-sm uppercase border-l-2 border-accent pl-4"
+                >
+                  <DiscordIcon size={20} className="text-accent" />
+                  <span>DSCRD: han_garda</span>
+                </motion.div>
+              </>
+            )}
           </div>
 
+        </div>
+
+        {/* Footer Metadata */}
+        <div className="mt-20 pt-8 border-t-2 border-paper/20 flex flex-col md:flex-row justify-between items-center gap-4 font-mono text-[10px] uppercase text-paper/50">
+          <p>COPYRIGHT &copy; {new Date().getFullYear()} HANDITYA. ALL RIGHTS RESERVED.</p>
+          <div className="flex gap-6">
+            <a href={SOCIAL_LINKS.INSTAGRAM_PERSONAL} className="hover:text-accent transition-colors" target="_blank" rel="noopener noreferrer">INSTAGRAM</a>
+            <a href={SOCIAL_LINKS.LINKEDIN} className="hover:text-accent transition-colors" target="_blank" rel="noopener noreferrer">LINKEDIN</a>
+            <a href={SOCIAL_LINKS.GITHUB} className="hover:text-accent transition-colors" target="_blank" rel="noopener noreferrer">GITHUB</a>
+          </div>
         </div>
 
       </div>
