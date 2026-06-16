@@ -20,38 +20,30 @@ import { Quote, Plus, User } from 'lucide-react';
 */
 
 const testimonials = [
-  // {
-  //   id: 1,
-  //   name: "Sarah Johnson",
-  //   role: "Creative Director",
-  //   company: "Studio Alpha",
-  //   content: "Handitya's ability to translate complex concepts into stunning visual experiences is unmatched.",
-  //   image: "https://randomuser.me/api/portraits/women/44.jpg"
-  // },
-  // {
-  //   id: 2,
-  //   name: "Michael Chen",
-  //   role: "Tech Lead",
-  //   company: "InnovateCorp",
-  //   content: "Working with Garda (his alter ego) was a wild ride! The creativity he brought to our experimental campaign was exactly what we needed.",
-  //   image: "https://randomuser.me/api/portraits/men/32.jpg"
-  // },
-  // {
-  //   id: 3,
-  //   name: "Jessica Williams",
-  //   role: "Marketing Manager",
-  //   company: "BrandFlow",
-  //   content: "The attention to detail in his work is incredible. From the micro-interactions to the overall layout, everything feels polished.",
-  //   image: "https://randomuser.me/api/portraits/women/68.jpg"
-  // },
-  // {
-  //   id: 4,
-  //   name: "David Smith",
-  //   role: "CEO",
-  //   company: "StartUp Inc",
-  //   content: "Highly recommended! Delivered the project on time and with great quality.",
-  //   image: "https://randomuser.me/api/portraits/men/45.jpg"
-  // }
+  {
+    id: 1,
+    name: "Abednego Lanang Wicaksono",
+    role: "",
+    company: "",
+    content: "Handitya is an incredibly talented developer. His ability to deliver high-quality applications on time while maintaining excellent communication made our collaboration seamless. Highly recommended!",
+    image: "/images/Screenshot 2026-06-17 023527.png"
+  },
+  {
+    id: 2,
+    name: "Raditya Bagas",
+    role: "CEO",
+    company: "Isvara Batik",
+    content: "Working with him was a great experience. He easily understood our requirements and translated them into a beautiful, functional app. The attention to detail is fantastic.",
+    image: "/images/Screenshot 2026-06-17 023718.png"
+  },
+  {
+    id: 3,
+    name: "52Herzt",
+    role: "2d Artist",
+    company: "",
+    content: "AHHH, I absolutely love it! The result truly exceeded my expectations 😭😘😋 The design is clean, neat, and beautifully arranged. They were also very accommodating with detailed revision requests, and the final result was still incredibly satisfying. I’m genuinely so happy with it. Highly recommended!",
+    image: "/images/Logo.jpg"
+  }
 ];
 
 const Testimonials = ({ isAlterMode }) => {
@@ -80,7 +72,7 @@ const Testimonials = ({ isAlterMode }) => {
                   whileInView={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                   viewport={{ once: true }}
-                  className={`min-w-[300px] md:min-w-[400px] snap-center p-8 rounded-2xl relative flex-shrink-0 ${isAlterMode ? 'bg-portfolio-dark border border-portfolio-green/20' : 'bg-white shadow-xl'}`}
+                  className={`w-full max-w-[300px] md:max-w-none md:min-w-[400px] snap-center p-6 md:p-8 rounded-2xl relative flex-shrink-0 ${isAlterMode ? 'bg-portfolio-dark border border-portfolio-green/20' : 'bg-white shadow-xl'}`}
                 >
                   <Quote className={`absolute top-8 right-8 w-10 h-10 opacity-20 ${isAlterMode ? 'text-portfolio-orange' : 'text-portfolio-green'}`} />
                   

@@ -82,6 +82,34 @@ export const projectsData = [
     image: "/images/Screenshot 2026-01-31 011359.png",
     liveUrl: "https://52herzt.vercel.app/",
     githubUrl: null
+  },
+  {
+    id: 7,
+    title: "52Herzt Portfolio (v2)",
+    category: "Client Based",
+    type: "Website",
+    summary: "Website Portfolio of 52Herzt commission.",
+    role: "Frontend Developer",
+    technologies: ["React.js", "Node.js", "JavaScript"],
+    year: "2026",
+    status: "Completed",
+    image: "/images/Screenshot 2026-06-17 020324.png",
+    liveUrl: "https://52herzt.vercel.app/",
+    githubUrl: null
+  },
+  {
+    id: 7,
+    title: "Client Portfolio",
+    category: "Client Based",
+    type: "Website",
+    summary: "Website Portfolio.",
+    role: "Frontend Developer",
+    technologies: ["React.js", "Node.js", "JavaScript"],
+    year: "2026",
+    status: "Completed",
+    image: "/images/Screenshot 2026-06-17 003159.png",
+    liveUrl: "https://52herzt.vercel.app/",
+    githubUrl: null
   }
 ];
 
